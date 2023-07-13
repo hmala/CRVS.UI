@@ -1,4 +1,5 @@
 ﻿using CRVS.Core.IRepositories;
+using CRVS.Core.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,11 @@ namespace CRVS.EF.Repositories
         {
             _context.Set<T>().Add(model);
             SaveChanges();
+        }
+
+        public void Add(BirthCertificateViewModel model)
+        {
+            throw new NotImplementedException();
         }
 
         public void Delete(int id)

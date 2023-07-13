@@ -1,125 +1,122 @@
-﻿
-using CRVS.Core.Models.SharedCode;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using static CRVS.Core.Models.SharedCode.CommonProp;
+using Microsoft.AspNetCore.Http;
 
-namespace CRVS.Core.Models
+namespace CRVS.Core.Models.ViewModels
 {
-    public class BirthCertificate:CommonProp
+    public class BirthCertificateViewModel
     {
-        
         public Guid BirthCertificateId { get; set; }
-      //  //        [Required]
+        //  //        [Required]
         [DisplayName("رقم الشهادة")]
         public string? CertificateNo { get; set; }
         public string? HelthID { get; set; }
-       // //        [Required]
+        // //        [Required]
         [DisplayName("اسم المولود")]
         public string? ChildName { get; set; }
         [DisplayName("الجنس")]
-       // //        [Required]
+        // //        [Required]
         public Genders? Gender { get; set; }
-       
+
         [DisplayName("المحافظة")]
-       // //        [Required]
+        // //        [Required]
         public int Governorate { get; set; }
         [DisplayName("دائرة الصحة")]
-      //  //        [Required]
+        //  //        [Required]
         public int DOH { get; set; }
         [DisplayName("القضاء")]
-      //  //        [Required]
+        //  //        [Required]
         public int District { get; set; }
         [DisplayName("الناحية")]
-       // //        [Required]
+        // //        [Required]
         public int Nahia { get; set; }
         [DisplayName("القرية")]
         public string? Village { get; set; }
         [DisplayName("نوع الولادة")]
-      //  //        [Required]
+        //  //        [Required]
         public BirthTypes? BirthType { get; set; }
-        
+
         [DisplayName("عدد المواليد")]
-       // //        [Required]
+        // //        [Required]
         public NumberOfBirths? NumberOfBirth { get; set; }
-       
-      //  //        [Required]
+
+        //  //        [Required]
         [DisplayName("الساعة")]
         public TimeSpan BHour { get; set; }
-      //  //        [Required]
+        //  //        [Required]
         [DisplayName("تاريخ الولادة")]
         public DateTime BOD { get; set; }
-      //  //        [Required]
+        //  //        [Required]
         [DisplayName("التاريخ كتابتاً")]
         public string? BODText { get; set; }
-      //  //        [Required]
+        //  //        [Required]
         [DisplayName("اسم الاب ")]
         public string? FatherFName { get; set; }
-      //  //        [Required]
+        //  //        [Required]
         [DisplayName("اسم الجد")]
         public string? FatherMName { get; set; }
-     //   //        [Required]
+        //   //        [Required]
         [DisplayName("اسم والد الجد")]
         public string? FatherLName { get; set; }
         public string? FatherFullName { get; set; }
-   //   //        [Required]
+        //   //        [Required]
         [DisplayName("تاريخ الولادة")]
         [DataType(DataType.Date)]
         public DateTime FatherBOD { get; set; }
         [DisplayName("العمر")]
 
         public int FatherAge { get; set; }
-     //   //        [Required]
+        //   //        [Required]
         [DisplayName("المهنة")]
 
         public int FatherJob { get; set; }
 
         [DisplayName("الجنسية")]
-    //    //        [Required]
+        //    //        [Required]
         public int FatherNationality { get; set; }
         [DisplayName("الديانة")]
-    //    //        [Required]
+        //    //        [Required]
         public int FatherReligion { get; set; }
         [DisplayName("رقم موبايل ")]
-    //    //        [Required]
+        //    //        [Required]
         public int FatherMobile { get; set; }
         [DisplayName("اسم الام")]
-    //    //        [Required]
+        //    //        [Required]
         public string? MotherFName { get; set; }
         [DisplayName("اسم والد الام")]
-     //   //        [Required]
+        //   //        [Required]
         public string? MotherMName { get; set; }
         [DisplayName("اسم جد الام")]
-     //   //        [Required]
+        //   //        [Required]
         public string? MotherLName { get; set; }
         public string? MotherFullName { get; set; }
 
         [DisplayName("تاريخ الولادة")]
         [DataType(DataType.Date)]
-//        //        [Required]
+        //        //        [Required]
         public DateTime MotherBOD { get; set; }
         [DisplayName("العمر")]
 
         public int MotherAge { get; set; }
         [DisplayName("المهنة")]
-//        //        [Required]
+        //        //        [Required]
         public int MotherJob { get; set; }
         [DisplayName(" الجنسية")]
-//        //        [Required]
+        //        //        [Required]
         public int MotherNationality { get; set; }
         [DisplayName("الديانة")]
-//        //        [Required]
+        //        //        [Required]
         public int MotherReligion { get; set; }
         [DisplayName("رقم موبايل ")]
         public int MotherMobile { get; set; }
         [DisplayName("هل هنالك صلة قرابة بين الام والاب؟")]
-//        //        [Required]
+        //        //        [Required]
         public bool Relative { get; set; }
         [DisplayName("الاحياء")]
 
@@ -137,35 +134,35 @@ namespace CRVS.Core.Models
         [DisplayName("نوع العوق")]
         public string? IsDisabledType { get; set; }
         [DisplayName("مدة الحمل بالاسبوع")]
-//        //        [Required]
+        //        //        [Required]
         public int DurationOfPregnancy { get; set; }
         [DisplayName("وزن الطفل")]
-//        //        [Required]
+        //        //        [Required]
         public decimal BabyWeight { get; set; }
         [DisplayName("مكان الولادة")]
-//        //        [Required]
+        //        //        [Required]
         public PlaceOfBirths? PlaceOfBirth { get; set; }
-       
+
         [DisplayName("حدثت الولادة بواسطة")]
-//        //        [Required]
+        //        //        [Required]
         public BirthOccurredBys BirthOccurredBy { get; set; }
         [DisplayName("رقم الاجازة")]
         public int LicenseNo { get; set; }
         [DisplayName("لسنة")]
-        public string? LicenseYear { get; set;}
+        public string? LicenseYear { get; set; }
         [DisplayName("المحافظة")]
-//        //        [Required]
+        //        //        [Required]
         public string? FamilyGovernorate { get; set; }
         [DisplayName("القضاء")]
-//        //        [Required]
+        //        //        [Required]
         public string? FamilyDistrict { get; set; }
         [DisplayName("الناحية")]
-//        //        [Required]
+        //        //        [Required]
         public string? FamilyNahiah { get; set; }
         [DisplayName("المحلة او القرية")]
-//        //        [Required]
+        //        //        [Required]
         public string? FamilyMahala { get; set; }
-     [DisplayName("دائرة الصحة")]
+        [DisplayName("دائرة الصحة")]
 
         public string? FamilyDOH { get; set; }
         [DisplayName("القطاع")]
@@ -177,7 +174,7 @@ namespace CRVS.Core.Models
         [DisplayName("رقم الدار")]
         public string? FamilyHomeNo { get; set; }
         [DisplayName("نوع الهوية")]
-//        //        [Required]
+        //        //        [Required]
         public DocumentTypes DocumentType { get; set; }
         [DisplayName("رقم السجل")]
         public string? RecordNumber { get; set; }
@@ -186,7 +183,7 @@ namespace CRVS.Core.Models
         [DisplayName(" دائرة الاحوال")]
         public string? CivilStatusDirectorate { get; set; }
         [DisplayName("المحافظة")]
-   
+
         public string? GovernorateCivilStatusDirectorate { get; set; }
         [DisplayName("رقم البطاقة للاب او الام")]
         public NationalIdFors NationalIdFor { get; set; }
@@ -195,13 +192,13 @@ namespace CRVS.Core.Models
         [DisplayName("رقم جواز السفر")]
         public string? PassportNo { get; set; }
         [DisplayName("اسم المخبر")]
-//        //        [Required]
+        //        //        [Required]
         public string? InformerName { get; set; }
         [DisplayName("عنوانه")]
-//        //        [Required]
+        //        //        [Required]
         public string? InformerJobTitle { get; set; }
         [DisplayName("صلته بالمولود")]
-//        //        [Required]
+        //        //        [Required]
         public string? KinshipOfTheNewborn { get; set; }
         [DisplayName("اسم المولد")]
         //        //        [Required]
@@ -218,27 +215,27 @@ namespace CRVS.Core.Models
         //        [Required]
         public int RationCard { get; set; }
         [DisplayName("نسخة الشهادة")]
-        public string? ImgBirthCertificate { get; set; }
+        public IFormFile? ImgBirthCertificate { get; set; }
         [DisplayName("عقد الزواج")]
-        public string? ImgMarriageCertificate { get; set; }
+        public IFormFile? ImgMarriageCertificate { get; set; }
         [DisplayName("جنسية الاب/وجه")]
         //        [Required]
-        public string? ImgFatherUnifiedNationalIdFront { get; set; }
+        public IFormFile? ImgFatherUnifiedNationalIdFront { get; set; }
         [DisplayName("جنسية الاب/ظهر")]
         //        [Required]
-        public string? ImgFatherUnifiedNationalIdBack { get; set; }
+        public IFormFile? ImgFatherUnifiedNationalIdBack { get; set; }
         [DisplayName("جنسية الام/وجه")]
         //        [Required]
-        public string? ImgMotherUnifiedNationalIdFront { get; set; }
+        public IFormFile? ImgMotherUnifiedNationalIdFront { get; set; }
         [DisplayName("جنسية الام/ظهر")]
         //        [Required]
-        public string? ImgMotherUnifiedNationalIdBack { get; set; }
+        public IFormFile? ImgMotherUnifiedNationalIdBack { get; set; }
         [DisplayName("بطاقة السكن/وجه")]
-        public string? ImgResidencyCardFront { get; set; }
+        public IFormFile? ImgResidencyCardFront { get; set; }
         [DisplayName("بطاقة السكن/ظهر")]
 
-        public string? ImgResidencyCardBack { get; set; }
-        public string? AllPDFs { get; set; }
+        public IFormFile? ImgResidencyCardBack { get; set; }
+      //  public IFormFile? AllPDFs { get; set; }
         public string? QrCode { get; set; }
         public bool FirstStage { get; set; }
         public bool SecondStage { get; set; }

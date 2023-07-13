@@ -1,4 +1,4 @@
-﻿@model CRVS.Core.Models.BirthCertificate
+﻿@model CRVS.Core.Models.ViewModels.BirthCertificateViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -66,7 +66,7 @@
                            
                             <div class="card-body wizard-content">
                                 <h6 class="card-subtitle mb-3"></h6>
-                                <form action="#" class="tab-wizard wizard-circle">
+                                <form action="Create" enctype="multipart/form-data" class="tab-wizard wizard-circle">
                                     <!-- Step 1 -->
                                     <h6>معلومات الوليد</h6>
                             
@@ -207,132 +207,475 @@
                                     </section>
 
                                     <!-- Step 2 -->
-                                    <h6>Job Status</h6>
-                                    <section>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="jobTitle1">Job Title :</label>
-                                                    <input type="text" class="form-control" id="jobTitle1">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="videoUrl1">Company Name :</label>
-                                                    <input type="text" class="form-control" id="videoUrl1">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="shortDescription1">Job Description :</label>
-                                                    <textarea name="shortDescription" id="shortDescription1" rows="6" class="form-control"></textarea>
-                                                </div>
+                                    <h6>معلومات الاب والام</h6>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherFName" class="control-label"></label>
+                                            <input asp-for="FatherFName" id="mname" class="form-control" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="FatherMName" class="control-label"></label>
+                                                <input asp-for="FatherMName" id="mname" class="form-control" />
+
                                             </div>
                                         </div>
-                                    </section>
+                                    <div class="col-md-2">
+                                            <div class="mb-3">
+                                            <label asp-for="FatherLName" class="control-label"></label>
+                                            <input asp-for="FatherLName" id="mname" class="form-control" />
+                                            </div>
+                                        </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherBOD" class="control-label"></label>
+                                            <input asp-for="FatherBOD" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherJob" class="control-label"></label>
+                                            <input asp-for="FatherJob" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherNationality" class="control-label"></label>
+                                            <input asp-for="FatherNationality" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherReligion" class="control-label"></label>
+                                            <input asp-for="FatherReligion" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherMobile" class="control-label"></label>
+                                            <input asp-for="FatherMobile" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherFName" class="control-label"></label>
+                                            <input asp-for="MotherFName" id="mname" class="form-control" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+
+                                            <label asp-for="MotherMName" class="control-label"></label>
+                                            <input asp-for="MotherMName" id="mname" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherLName" class="control-label"></label>
+                                            <input asp-for="MotherLName" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherBOD" class="control-label"></label>
+                                            <input asp-for="MotherBOD" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherJob" class="control-label"></label>
+                                            <input asp-for="MotherJob" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherNationality" class="control-label"></label>
+                                            <input asp-for="MotherNationality" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherReligion" class="control-label"></label>
+                                            <input asp-for="MotherReligion" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherMobile" class="control-label"></label>
+                                            <input asp-for="MotherMobile" id="mname" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                               
+                                        <div class="mb-1">
+                                            <label asp-for="Relative" class="control-label"></label>
+                                            @Html.CheckBox("Relative",false)
+
+                                        </div>
+
+                                    
+                                 </div>
+                                   
+
+
+                            </section>
                                     <!-- Step 3 -->
-                                    <h6>Interview</h6>
+                                    <h6>عدد المواليد السابقة للام عدا هذا الطفل </h6>
                                     <section>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <div class="mb-3">
-                                                    <label for="int1">Interview For :</label>
-                                                    <input type="text" class="form-control" id="int1">
+                                            <label asp-for="Alive" class="control-label"></label>
+                                            <input asp-for="Alive" class="form-control" />
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="intType1">Interview Type :</label>
-                                                    <select class="form-select" id="intType1" data-placeholder="Type to search cities" name="intType1">
-                                                        <option value="Banquet">Normal</option>
-                                                        <option value="Fund Raiser">Difficult</option>
-                                                        <option value="Dinner Party">Hard</option>
-                                                    </select>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="Location1">Location :</label>
-                                                    <select class="form-select" id="Location1" name="location">
-                                                        <option value="">Select City</option>
-                                                        <option value="India">India</option>
-                                                        <option value="USA">USA</option>
-                                                        <option value="Dubai">Dubai</option>
-                                                    </select>
-                                                </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+                                                <label asp-for="BornAliveThenDied" class="control-label"></label>
+                                                <input asp-for="BornAliveThenDied" class="form-control" />
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="jobTitle2">Interview Date :</label>
-                                                    <input type="date" class="form-control" id="jobTitle2">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label>Requirements :</label>
-                                                    <div class="c-inputs-stacked">
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio6" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio6">Employee</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio7" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio7">Contract</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+                                                <label asp-for="StillBirth" class="control-label"></label>
+                                                <input asp-for="StillBirth" class="form-control" />
                                             </div>
                                         </div>
-                                    </section>
+                                       
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BornDisable" class="control-label"></label>
+                                            <input asp-for="BornDisable" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="NoAbortion" class="control-label"></label>
+                                            <input asp-for="NoAbortion" class="form-control" />
+                                        </div>
+                                    </div>
+                                   
+                                        <div class="mb-3">
+                                            <label asp-for="IsDisabled" class="control-label"></label>
+                                            @Html.CheckBox("IsDisabled",false)
+                                       
+                                    </div>
+                                   
+                                        <div class="mb-3">
+                                            <label asp-for="IsDisabledType" class="control-label"></label>
+                                            <input asp-for="IsDisabledType" class="form-control" />
+                                        
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Step 4 -->
+                            <h6>معلومات الوليد والعائلة </h6>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="DurationOfPregnancy" class="control-label"></label>
+                                            <input asp-for="DurationOfPregnancy" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BabyWeight" class="control-label"></label>
+                                            <input asp-for="BabyWeight" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="PlaceOfBirth" class="control-label"></label>
+                                            <select asp-for="PlaceOfBirth" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.PlaceOfBirths>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BirthOccurredBy" class="control-label"></label>
+                                            <select asp-for="BirthOccurredBy" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.BirthOccurredBys>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="LicenseNo" class="control-label"></label>
+                                            <input asp-for="LicenseNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="LicenseYear" class="control-label"></label>
+                                            <input asp-for="LicenseYear" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>العنوان الدائم لعائلة المولود</h4>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyGovernorate" class="control-label"></label>
+                                            <input asp-for="FamilyGovernorate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyDistrict" class="control-label"></label>
+                                            <input asp-for="FamilyDistrict" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyNahiah" class="control-label"></label>
+                                            <input asp-for="FamilyNahiah" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyMahala" class="control-label"></label>
+                                            <input asp-for="FamilyMahala" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyZigag" class="control-label"></label>
+                                            <input asp-for="FamilyZigag" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyHomeNo" class="control-label"></label>
+                                            <input asp-for="FamilyHomeNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyDOH" class="control-label"></label>
+                                            <input asp-for="FamilyDOH" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilySector" class="control-label"></label>
+                                            <input asp-for="FamilySector" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyPHC" class="control-label"></label>
+                                            <input asp-for="FamilyPHC" class="form-control" />
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+                                <h4>معلومات خاصة بمديرية الجنسية والاحوال المدنية</h4>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="DocumentType" class="control-label"></label>
+                                            <select asp-for="DocumentType" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.DocumentTypes>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="RecordNumber" class="control-label"></label>
+                                            <input asp-for="RecordNumber" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="PageNumber" class="control-label"></label>
+                                            <input asp-for="PageNumber" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="CivilStatusDirectorate" class="control-label"></label>
+                                            <input asp-for="CivilStatusDirectorate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="GovernorateCivilStatusDirectorate" class="control-label"></label>
+                                            <input asp-for="GovernorateCivilStatusDirectorate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="NationalIdFor" class="control-label"></label>
+                                            <select asp-for="NationalIdFor" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.NationalIdFors>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="NationalID" class="control-label"></label>
+                                            <input asp-for="NationalID" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="PassportNo" class="control-label"></label>
+                                            <input asp-for="PassportNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </section>
                                     <!-- Step 4 -->
-                                    <h6>Remark</h6>
+                                    <h6>معلومات اخرى</h6>
                                     <section>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <div class="mb-3">
-                                                    <label for="behName1">Behaviour :</label>
-                                                    <input type="text" class="form-control" id="behName1">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="participants1">Confidance</label>
-                                                    <input type="text" class="form-control" id="participants1">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="participants1">Result</label>
-                                                    <select class="form-select" id="participants1" name="location">
-                                                        <option value="">Select Result</option>
-                                                        <option value="Selected">Selected</option>
-                                                        <option value="Rejected">Rejected</option>
-                                                        <option value="Call Second-time">Call Second-time</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="decisions1">Comments</label>
-                                                    <textarea name="decisions" id="decisions1" rows="4" class="form-control"></textarea>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label>Rate Interviwer :</label>
-                                                    <div class="c-inputs-stacked">
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio1" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio1">1 star</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio2" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio2">2 star</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio3" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio3">3 star</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio4" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio4">4 star</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input type="radio" id="customRadio5" name="customRadio" class="form-check-input">
-                                                            <label class="form-check-label" for="customRadio5">5 star</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <label asp-for="InformerName" class="control-label"></label>
+                                            <input asp-for="InformerName" class="form-control" />
+                                                 </div>
+                                               
                                         </div>
+                                            <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="InformerJobTitle" class="control-label"></label>
+                                            <input asp-for="InformerJobTitle" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                            <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="KinshipOfTheNewborn" class="control-label"></label>
+                                            <input asp-for="KinshipOfTheNewborn" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+                                    </div>
+                                        <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BirthPerformerName" class="control-label"></label>
+                                            <input asp-for="BirthPerformerName" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BirthPerformerWorkingAddress" class="control-label"></label>
+                                            <input asp-for="BirthPerformerWorkingAddress" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                  
+
+                                </div>
+                                        <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label asp-for="HospitalManagerName" class="control-label"></label>
+                                            <input asp-for="HospitalManagerName" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="RationCard" class="control-label"></label>
+                                            <input asp-for="RationCard" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                   
+
+
+                                </div>
+                                        <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgBirthCertificate" class="control-label"></label>
+                                            <input asp-for="ImgBirthCertificate" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgMarriageCertificate" class="control-label"></label>
+                                            <input asp-for="ImgMarriageCertificate" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                        <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgFatherUnifiedNationalIdFront" class="control-label"></label>
+                                            <input asp-for="ImgFatherUnifiedNationalIdFront" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                    <div class="mb-3">
+                                                <label asp-for="ImgFatherUnifiedNationalIdBack" class="control-label"></label>
+                                                <input asp-for="ImgFatherUnifiedNationalIdBack" class="form-control" />
+                                            </div>
+
+                                        </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgMotherUnifiedNationalIdFront" class="control-label"></label>
+                                            <input asp-for="ImgMotherUnifiedNationalIdFront" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgMotherUnifiedNationalIdBack" class="control-label"></label>
+                                            <input asp-for="ImgMotherUnifiedNationalIdBack" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                        <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgResidencyCardFront" class="control-label"></label>
+                                            <input asp-for="ImgResidencyCardFront" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgResidencyCardBack" class="control-label"></label>
+                                            <input asp-for="ImgResidencyCardBack" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                  
+                                </div>
                                     </section>
                                 </form>
                             </div>
