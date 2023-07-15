@@ -10,23 +10,31 @@ namespace CRVS.UI.Controllers
     public class BirthCertificateController : Controller
     {
         public IBaseRepository<BirthCertificate> _BaseRepository;
+        public IBaseRepository<Governorate> _Governorate;
         public IWebHostEnvironment _environment;
-       
-        public BirthCertificateController(IBaseRepository<BirthCertificate> BaseRepository,IWebHostEnvironment webHostEnvironment)
+
+        public BirthCertificateController(IBaseRepository<BirthCertificate> BaseRepository,
+            IWebHostEnvironment webHostEnvironment,
+            IBaseRepository<Governorate> governorate)
         {
             _BaseRepository = BaseRepository;
             _environment = webHostEnvironment;
-
-
-           
+            _Governorate = governorate;
         }
+        [HttpGet]
+        public IActionResult GetCitiesByCountry(int countryId)
+        {
+            var cities = _Governorate.GetAll().ToList<Governorate>;
+            return Json(cities);
+        }
+
         public IActionResult Index()
         {
             return View(_BaseRepository.GetAll);
         }
         public IActionResult Create()
         {
-            
+
             return View();
         }
         [HttpPost]
@@ -38,14 +46,14 @@ namespace CRVS.UI.Controllers
                 BirthCertificate courseData = new BirthCertificate
                 {
                     ImgBirthCertificate = CourseName,
-                   
+
                 };
                 _BaseRepository.Add(model);
                 _BaseRepository.SaveChanges();
                 return RedirectToAction("Create");
             }
             return View(model);
-           
+
 
         }
         private string UploadedFile(BirthCertificateViewModel CourseInput)

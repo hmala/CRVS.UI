@@ -241,5 +241,6 @@ namespace CRVS.Core.Models.ViewModels
         public bool SecondStage { get; set; }
         public bool Approval { get; set; }
         public bool Creator { get; set; }
+       
     }
 }
