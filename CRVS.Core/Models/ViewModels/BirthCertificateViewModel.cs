@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static CRVS.Core.Models.SharedCode.CommonProp;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CRVS.Core.Models.ViewModels
 {
@@ -132,7 +133,9 @@ namespace CRVS.Core.Models.ViewModels
         [DisplayName("هل الولادة الحالية معوقة؟")]
         public bool IsDisabled { get; set; }
         [DisplayName("نوع العوق")]
+        [ForeignKey("DisabledType")]
         public string? IsDisabledType { get; set; }
+        public DisabledType? DisabledType { get; set; }
         [DisplayName("مدة الحمل بالاسبوع")]
         //        //        [Required]
         public int DurationOfPregnancy { get; set; }

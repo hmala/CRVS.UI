@@ -21,7 +21,7 @@ namespace CRVS.Core.Models.SharedCode
         public enum NumberOfBirths { مفردة, توأم, ثلاثية, اكثر }
         public enum PlaceOfBirths { بيت, مستشفى_او_مركزصحي }
         public enum BirthOccurredBys { طبيب, ممرضة_مجازة_بالتوليد,قابلة_مجازة,اخرى }
-        public enum DocumentTypes { هوية_الاحوال_المدنية,البطاقة_الموحدة,جواز_سفر }
+        public enum DocumentTypes { هوية_الاحوال_المدنية,البطاقة_الموحدة,جواز_سفر,رقم_الاقامة}
         public enum NationalIdFors { الاب,الام}
 
         #endregion

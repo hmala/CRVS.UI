@@ -358,10 +358,12 @@ namespace CRVS.EF.Migrations
                     b.Property<string>("DohName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GovernorateCode")
+                    b.Property<int>("GovernorateId")
                         .HasColumnType("int");
 
                     b.HasKey("DohId");
+
+                    b.HasIndex("GovernorateId");
 
                     b.ToTable("Dohs");
                 });
@@ -696,6 +698,17 @@ namespace CRVS.EF.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("CRVS.Core.Models.Doh", b =>
+                {
+                    b.HasOne("CRVS.Core.Models.Governorate", "governorate")
+                        .WithMany()
+                        .HasForeignKey("GovernorateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("governorate");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

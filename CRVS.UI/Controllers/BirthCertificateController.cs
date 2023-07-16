@@ -1,58 +1,61 @@
 ﻿using CRVS.Core.IRepositories;
 using CRVS.Core.Models;
 using CRVS.Core.Models.ViewModels;
+using CRVS.EF;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace CRVS.UI.Controllers
 {
     public class BirthCertificateController : Controller
     {
         public IBaseRepository<BirthCertificate> _BaseRepository;
-        public IBaseRepository<Governorate> _Governorate;
         public IWebHostEnvironment _environment;
+        public ApplicationDbContext _context;
+           
+            
 
         public BirthCertificateController(IBaseRepository<BirthCertificate> BaseRepository,
-            IWebHostEnvironment webHostEnvironment,
-            IBaseRepository<Governorate> governorate)
+            ApplicationDbContext context,
+            IWebHostEnvironment webHostEnvironment)
         {
             _BaseRepository = BaseRepository;
+
             _environment = webHostEnvironment;
-            _Governorate = governorate;
+            _context = context;
+           
         }
         [HttpGet]
-        public IActionResult GetCitiesByCountry(int countryId)
-        {
-            var cities = _Governorate.GetAll().ToList<Governorate>;
-            return Json(cities);
-        }
+       
 
         public IActionResult Index()
         {
             return View(_BaseRepository.GetAll);
+           
         }
+
+        [HttpGet]
         public IActionResult Create()
         {
+
+            ViewBag.Disabledtype = new SelectList(_context.DisabledTypes, "DisabledTypeCode", "DisabledTypeName");
+            ViewBag.getjobs = new SelectList(_context.Jobs, "JobId", "JobName");
+            ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
+            ViewBag.Religion = new SelectList(_context.Religions, "ReligionId", "ReligionName");
 
             return View();
         }
         [HttpPost]
-        public IActionResult Create(BirthCertificateViewModel model)
+        public IActionResult Create(BirthCertificate model)
         {
-            if (ModelState.IsValid)
-            {
-                string CourseName = UploadedFile(model);
-                BirthCertificate courseData = new BirthCertificate
-                {
-                    ImgBirthCertificate = CourseName,
-
-                };
+           
                 _BaseRepository.Add(model);
                 _BaseRepository.SaveChanges();
                 return RedirectToAction("Create");
-            }
-            return View(model);
+            
+         
 
 
         }

@@ -14,5 +14,6 @@ namespace CRVS.Core.Models
         public int DohId { get; set; }
         public int GovernorateId { get; set; }
 
+
     }
 }

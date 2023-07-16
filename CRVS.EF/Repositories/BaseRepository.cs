@@ -23,11 +23,7 @@ namespace CRVS.EF.Repositories
             SaveChanges();
         }
 
-        public void Add(BirthCertificateViewModel model)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public void Delete(int id)
         {
             var entity = _context.Set<T>().Find(id);

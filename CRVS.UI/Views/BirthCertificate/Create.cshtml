@@ -1,46 +1,20 @@
-﻿@model CRVS.Core.Models.ViewModels.BirthCertificateViewModel
+﻿@model CRVS.Core.Models.BirthCertificate
 @{
     ViewData["Title"] = "Create";
 }
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, admin pro admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template">
-    <meta name="description"
-          content="Admin Pro is powerful and clean admin dashboard template">
-    <meta name="robots" content="noindex,nofollow">
-    <title>Admin Pro Template by WrapPixel</title>
-    <link rel="canonical" href="https://www.wrappixel.com/templates/adminpro/" />
+ <link rel="canonical" href="https://www.wrappixel.com/templates/adminpro/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon.png">
     <!-- This page CSS -->
     <link href="~/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
     <link href="~/libs/jquery-steps/steps.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
 <body>
     <!-- -------------------------------------------------------------- -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- -------------------------------------------------------------- -->
-    <div class="preloader">
-        <svg class="tea lds-ripple" width="37" height="48" viewbox="0 0 37 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z" stroke="#2962FF" stroke-width="2"></path>
-            <path d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34" stroke="#2962FF" stroke-width="2"></path>
-            <path id="teabag" fill="#2962FF" fill-rule="evenodd" clip-rule="evenodd" d="M16 25V17H14V25H12C10.3431 25 9 26.3431 9 28V34C9 35.6569 10.3431 37 12 37H18C19.6569 37 21 35.6569 21 34V28C21 26.3431 19.6569 25 18 25H16ZM11 28C11 27.4477 11.4477 27 12 27H18C18.5523 27 19 27.4477 19 28V34C19 34.5523 18.5523 35 18 35H12C11.4477 35 11 34.5523 11 34V28Z"></path>
-            <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2962FF"></path>
-            <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="#2962FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-    </div>
+ 
     <!-- -------------------------------------------------------------- -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- -------------------------------------------------------------- -->
@@ -65,73 +39,12 @@
 
                     <div class="card-body wizard-content">
                         <h6 class="card-subtitle mb-3"></h6>
-                        <form action="Create" method="post" enctype="multipart/form-data" class="tab-wizard wizard-circle">
+                        <form action="Create"  method="post" enctype="multipart/form-data" class="tab-wizard wizard-circle">
                             <!-- Step 1 -->
                             <h6>معلومات الوليد</h6>
 
                             <section>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="d-flex no-block">
-                                                    <div class="me-3 align-self-center">
-                                                        <span class="lstick d-inline-block align-middle"></span><img src="~/images/icon/income.png" alt="Income" />
-                                                    </div>
-                                                    <div class="align-self-center">
-                                                        <h6 class="text-muted mt-2 mb-0">عدد الولادات الكلية</h6>
-                                                        <h2></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="d-flex no-block">
-                                                    <div class="me-3 align-self-center">
-                                                        <span class="lstick d-inline-block align-middle"></span><img src="~/images/icon/expense.png" alt="Income" />
-                                                    </div>
-                                                    <div class="align-self-center">
-                                                        <h6 class="text-muted mt-2 mb-0">عدد الشهادات المنجزة</h6>
-                                                        <h2></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="d-flex no-block">
-                                                    <div class="me-3 align-self-center">
-                                                        <span class="lstick d-inline-block align-middle"></span><img src="~/images/icon/assets.png" alt="Income" />
-                                                    </div>
-                                                    <div class="align-self-center">
-                                                        <h6 class="text-muted mt-2 mb-0">عدد الشهادات المعلقة</h6>
-                                                        <h2></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="d-flex no-block">
-                                                    <div class="me-3 align-self-center">
-                                                        <span class="lstick d-inline-block align-middle"></span><img src="~/images/icon/staff.png" alt="Income" />
-                                                    </div>
-                                                    <div class="align-self-center">
-                                                        <h6 class="text-muted mt-2 mb-0">سبب الغير منجز</h6>
-                                                        <h2></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="mb-3">
@@ -299,22 +212,40 @@
                                             <input asp-for="FatherBOD" id="mname" class="form-control" />
                                         </div>
                                     </div>
+
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherJob" class="control-label"></label>
-                                            <input asp-for="FatherJob" id="mname" class="form-control" />
+
+                                            <select asp-for="FatherJob" 
+                                                    class="form-control"
+                                                    asp-items="ViewBag.getjobs">
+                                                    <option value="-1">------المهنة</option>
+
+
+
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherNationality" class="control-label"></label>
-                                            <input asp-for="FatherNationality" id="mname" class="form-control" />
+                                            <select asp-for="FatherNationality"
+
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Nationality">
+                                                <option value="-1">------الجنسية</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherReligion" class="control-label"></label>
-                                            <input asp-for="FatherReligion" id="mname" class="form-control" />
+                                            <select asp-for="FatherReligion"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Religion">
+                                                <option value="-1">------الديانة</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -356,19 +287,32 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherJob" class="control-label"></label>
-                                            <input asp-for="MotherJob" id="mname" class="form-control" />
+
+                                            <select asp-for="MotherJob"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.getjobs">
+                                                    <option value="-1">------المهنة</option>
+                                                    </select>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherNationality" class="control-label"></label>
-                                            <input asp-for="MotherNationality" id="mname" class="form-control" />
+                                            <select asp-for="MotherNationality"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Nationality">
+                                                <option value="-1">------الجنسية</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherReligion" class="control-label"></label>
-                                            <input asp-for="MotherReligion" id="mname" class="form-control" />
+                                            <select asp-for="MotherReligion"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Religion">
+                                                <option value="-1">------الديانة</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -437,8 +381,12 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label asp-for="IsDisabledType" class="control-label"></label>
-                                        <input asp-for="IsDisabledType" class="form-control" />
+                                       <label asp-for="IsDisabledType" class="control-label"></label>
+                                        <select asp-for="IsDisabledType"
+                                  class="form-control"
+                                                asp-items=" ViewBag.Disabledtype">
+                                            <option value="-1">------التشوهات الخلقية</option>
+                                   </select>
 
                                     </div>
                                 </div>
@@ -670,7 +618,7 @@
                                             <label asp-for="RationCard" class="control-label"></label>
                                             <input asp-for="RationCard" class="form-control" />
                                         </div>
-                                       <input type="submit" value="Create" class="btn btn-info" />
+                                      
                                     </div>
 
 
@@ -733,9 +681,9 @@
                                             <label asp-for="ImgResidencyCardBack" class="control-label"></label>
                                             <input asp-for="ImgResidencyCardBack" class="form-control" />
                                         </div>
+                                        <input type="submit" value="Create" class="btn btn-info" />
 
                                     </div>
-
                                 </div>
                             </section>
                         </form>
@@ -754,17 +702,7 @@
     <!-- -------------------------------------------------------------- -->
     <!-- -------------------------------------------------------------- -->
     <!-- -------------------------------------------------------------- -->
-    </div>
-    <!-- -------------------------------------------------------------- -->
-    <!-- End Page wrapper  -->
-    <!-- -------------------------------------------------------------- -->
-    </div>
-    <!-- -------------------------------------------------------------- -->
-    <!-- End Wrapper -->
-    <!-- -------------------------------------------------------------- -->
-    <!-- -------------------------------------------------------------- -->
-    <!-- customizer Panel -->
-    <!-- -------------------------------------------------------------- -->
+  
     <aside class="customizer">
         <a href="javascript:void(0)" class="service-panel-toggle"><i data-feather="settings" class="feather-sm"></i></a>
         <div class="customizer-body">
@@ -792,7 +730,7 @@
     <!-- -------------------------------------------------------------- -->
     <script src="~/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="~/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ 
     <!-- apps -->
     <script src="~/js/app.min.js"></script>
     <script src="~/js/app.init.js"></script>

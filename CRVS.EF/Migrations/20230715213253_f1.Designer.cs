@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRVS.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230712113318_f1")]
+    [Migration("20230715213253_f1")]
     partial class f1
     {
         /// <inheritdoc />
@@ -47,7 +47,6 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("BODText")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("BabyWeight")
@@ -57,14 +56,12 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("BirthPerformerName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BirthPerformerWorkingAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BirthType")
+                    b.Property<int?>("BirthType")
                         .HasColumnType("int");
 
                     b.Property<int>("BornAliveThenDied")
@@ -74,11 +71,9 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CertificateNo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CivilStatusDirectorate")
@@ -106,22 +101,18 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilyDistrict")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilyGovernorate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilyHomeNo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilyMahala")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilyNahiah")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilyPHC")
@@ -140,7 +131,6 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FatherFName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FatherFullName")
@@ -150,11 +140,9 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FatherLName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FatherMName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FatherMobile")
@@ -169,7 +157,7 @@ namespace CRVS.EF.Migrations
                     b.Property<bool>("FirstStage")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
 
                     b.Property<int>("Governorate")
@@ -182,7 +170,6 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HospitalManagerName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HospitalManagerSig")
@@ -192,22 +179,18 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgFatherUnifiedNationalIdBack")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgFatherUnifiedNationalIdFront")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgMarriageCertificate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgMotherUnifiedNationalIdBack")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgMotherUnifiedNationalIdFront")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgResidencyCardBack")
@@ -217,11 +200,9 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InformerJobTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InformerName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -237,7 +218,6 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KinshipOfTheNewborn")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LicenseNo")
@@ -253,7 +233,6 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("MotherFName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MotherFullName")
@@ -263,11 +242,9 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MotherLName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MotherMName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MotherMobile")
@@ -291,7 +268,7 @@ namespace CRVS.EF.Migrations
                     b.Property<int>("NoAbortion")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumberOfBirth")
+                    b.Property<int?>("NumberOfBirth")
                         .HasColumnType("int");
 
                     b.Property<string>("PageNumber")
@@ -300,7 +277,7 @@ namespace CRVS.EF.Migrations
                     b.Property<string>("PassportNo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PlaceOfBirth")
+                    b.Property<int?>("PlaceOfBirth")
                         .HasColumnType("int");
 
                     b.Property<string>("QrCode")
@@ -378,6 +355,9 @@ namespace CRVS.EF.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DohId"));
 
+                    b.Property<int>("DohCode")
+                        .HasColumnType("int");
+
                     b.Property<string>("DohName")
                         .HasColumnType("nvarchar(max)");
 
@@ -385,6 +365,8 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("DohId");
+
+                    b.HasIndex("GovernorateId");
 
                     b.ToTable("Dohs");
                 });
@@ -412,6 +394,9 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GovernorateId"));
+
+                    b.Property<int>("GovernorateCode")
+                        .HasColumnType("int");
 
                     b.Property<string>("GovernorateName")
                         .HasColumnType("nvarchar(max)");
@@ -716,6 +701,17 @@ namespace CRVS.EF.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("CRVS.Core.Models.Doh", b =>
+                {
+                    b.HasOne("CRVS.Core.Models.Governorate", "governorate")
+                        .WithMany()
+                        .HasForeignKey("GovernorateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("governorate");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

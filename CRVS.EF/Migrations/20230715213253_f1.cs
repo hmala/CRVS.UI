@@ -55,23 +55,23 @@ namespace CRVS.EF.Migrations
                 columns: table => new
                 {
                     BirthCertificateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CertificateNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CertificateNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HelthID = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChildName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<int>(type: "int", nullable: false),
+                    ChildName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Gender = table.Column<int>(type: "int", nullable: true),
                     Governorate = table.Column<int>(type: "int", nullable: false),
                     DOH = table.Column<int>(type: "int", nullable: false),
                     District = table.Column<int>(type: "int", nullable: false),
                     Nahia = table.Column<int>(type: "int", nullable: false),
                     Village = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BirthType = table.Column<int>(type: "int", nullable: false),
-                    NumberOfBirth = table.Column<int>(type: "int", nullable: false),
+                    BirthType = table.Column<int>(type: "int", nullable: true),
+                    NumberOfBirth = table.Column<int>(type: "int", nullable: true),
                     BHour = table.Column<TimeSpan>(type: "time", nullable: false),
                     BOD = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BODText = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FatherFName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FatherMName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FatherLName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BODText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FatherFName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FatherMName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FatherLName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FatherFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FatherBOD = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FatherAge = table.Column<int>(type: "int", nullable: false),
@@ -79,9 +79,9 @@ namespace CRVS.EF.Migrations
                     FatherNationality = table.Column<int>(type: "int", nullable: false),
                     FatherReligion = table.Column<int>(type: "int", nullable: false),
                     FatherMobile = table.Column<int>(type: "int", nullable: false),
-                    MotherFName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MotherMName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MotherLName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MotherFName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MotherMName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MotherLName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MotherFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MotherBOD = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MotherAge = table.Column<int>(type: "int", nullable: false),
@@ -99,14 +99,14 @@ namespace CRVS.EF.Migrations
                     IsDisabledType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DurationOfPregnancy = table.Column<int>(type: "int", nullable: false),
                     BabyWeight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PlaceOfBirth = table.Column<int>(type: "int", nullable: false),
+                    PlaceOfBirth = table.Column<int>(type: "int", nullable: true),
                     BirthOccurredBy = table.Column<int>(type: "int", nullable: false),
                     LicenseNo = table.Column<int>(type: "int", nullable: false),
                     LicenseYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FamilyGovernorate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FamilyDistrict = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FamilyNahiah = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FamilyMahala = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FamilyGovernorate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FamilyDistrict = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FamilyNahiah = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FamilyMahala = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FamilyDOH = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FamilySector = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FamilyPHC = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -120,20 +120,20 @@ namespace CRVS.EF.Migrations
                     NationalIdFor = table.Column<int>(type: "int", nullable: false),
                     NationalID = table.Column<int>(type: "int", nullable: false),
                     PassportNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    InformerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InformerJobTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KinshipOfTheNewborn = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthPerformerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthPerformerWorkingAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HospitalManagerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    InformerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InformerJobTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KinshipOfTheNewborn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirthPerformerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirthPerformerWorkingAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HospitalManagerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HospitalManagerSig = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RationCard = table.Column<int>(type: "int", nullable: false),
                     ImgBirthCertificate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImgMarriageCertificate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImgFatherUnifiedNationalIdFront = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgFatherUnifiedNationalIdBack = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgMotherUnifiedNationalIdFront = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgMotherUnifiedNationalIdBack = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImgFatherUnifiedNationalIdFront = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImgFatherUnifiedNationalIdBack = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImgMotherUnifiedNationalIdFront = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImgMotherUnifiedNationalIdBack = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImgResidencyCardFront = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImgResidencyCardBack = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AllPDFs = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -181,20 +181,6 @@ namespace CRVS.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dohs",
-                columns: table => new
-                {
-                    DohId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DohName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GovernorateId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Dohs", x => x.DohId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "FacilityTypes",
                 columns: table => new
                 {
@@ -213,6 +199,7 @@ namespace CRVS.EF.Migrations
                 {
                     GovernorateId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    GovernorateCode = table.Column<int>(type: "int", nullable: false),
                     GovernorateName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -397,6 +384,27 @@ namespace CRVS.EF.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Dohs",
+                columns: table => new
+                {
+                    DohId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DohCode = table.Column<int>(type: "int", nullable: false),
+                    DohName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GovernorateId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dohs", x => x.DohId);
+                    table.ForeignKey(
+                        name: "FK_Dohs_Governorates_GovernorateId",
+                        column: x => x.GovernorateId,
+                        principalTable: "Governorates",
+                        principalColumn: "GovernorateId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -435,6 +443,11 @@ namespace CRVS.EF.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Dohs_GovernorateId",
+                table: "Dohs",
+                column: "GovernorateId");
         }
 
         /// <inheritdoc />
@@ -471,9 +484,6 @@ namespace CRVS.EF.Migrations
                 name: "FacilityTypes");
 
             migrationBuilder.DropTable(
-                name: "Governorates");
-
-            migrationBuilder.DropTable(
                 name: "HealthInstitutions");
 
             migrationBuilder.DropTable(
@@ -493,6 +503,9 @@ namespace CRVS.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Governorates");
         }
     }
 }

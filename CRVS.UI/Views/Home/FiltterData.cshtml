@@ -1,0 +1,89 @@
+﻿@model CRVS.Core.Models.Governorate
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script src="~/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var items = "<option value='0'>Select</option>";
+        $('#DohId').html(items);
+        $('#DistrictId').html(items);
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#GovernorateId').change(function () {
+            var url = '@Url.Content("~/")'
+                + "Home/GetSubCategory";
+            var ddlsource = "#GovernorateId";
+            $.getJSON(url, { CategoryId: $(ddlsource).val() }, function (data) {
+                var items = '';
+                $("#DohId").empty();
+                $.each(data, function (i, subcategory) {
+                    items += "<option value='"
+                        + subcategory.value + "'>"
+                        + subcategory.text + "</option>";
+                });
+                $('#DohId').html(items);
+            });
+        });
+        $('#DohId').change(function () {
+            var url = '@Url.Content("~/")' + "Home/GetProducts";
+            var ddlsource = "#DohId";
+            $.getJSON(url, { SubCategoryID: $(ddlsource).val() }, function (data) {
+                var items = '';
+                $('#DistrictId').empty();
+                $.each(data, function (i, product) {
+                    items += "<option value='" + product.value + "'>" + product.text + "</option>";
+                });
+                $('#DistrictId').html(items);
+            });
+        });
+      
+    });
+</script>
+<form asp-controller="Home" asp-action="FiltterData" method="post" class="form-horzontal">
+    <div class="form-group">
+        <div class="row">
+            <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <label asp-for="GovernorateName" class="control-label"></label>
+                <select asp-for="GovernorateId"
+                        class="form-control"
+                        asp-items="@(new SelectList(@ViewBag.ListofCategory,"GovernorateId", "GovernorateName"))">
+                </select>
+            </div>
+            </div>
+            </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <label class="control-label">SubCategoryName</label>
+                <select class="form-control" id="DohId" name="DohName" asp-for="DohId"
+                        asp-items="@(new SelectList(string.Empty,"DohId", "DohName"))"></select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <label class="control-label">ProductName</label>
+                <select class="form-control" id="DistrictId" name="DistrictId" asp-for="DistrictId"
+                        asp-items="@(new SelectList(string.Empty,"DistrictId", "DistrictName"))"></select>
+            </div>
+        </div>
+    </div>
+   
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <input id="Submit1" type="submit" value="submit" />
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,5 +1,4 @@
-﻿using CRVS.Core.Models.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +17,6 @@ namespace CRVS.Core.IRepositories
         void Delete(int id);
 
         void SaveChanges();
-        void Add(BirthCertificateViewModel model);
+       
     }
 }
