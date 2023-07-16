@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CRVS.Core.Models.SharedCode
 {
@@ -22,7 +24,14 @@ namespace CRVS.Core.Models.SharedCode
         public enum PlaceOfBirths { بيت, مستشفى_او_مركزصحي }
         public enum BirthOccurredBys { طبيب, ممرضة_مجازة_بالتوليد,قابلة_مجازة,اخرى }
         public enum DocumentTypes { هوية_الاحوال_المدنية,البطاقة_الموحدة,جواز_سفر,رقم_الاقامة}
-        public enum NationalIdFors { الاب,الام}
+        public enum NationalIdFors {
+            [Display(Name = "الاب")]
+
+            fa = 1,
+            [Display(Name = "الام")]
+
+            mo = 2
+        }
 
         #endregion
     }

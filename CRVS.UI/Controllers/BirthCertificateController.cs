@@ -35,6 +35,7 @@ namespace CRVS.UI.Controllers
             return View(_BaseRepository.GetAll);
            
         }
+     
 
         [HttpGet]
         public IActionResult Create()

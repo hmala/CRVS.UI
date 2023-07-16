@@ -10,6 +10,36 @@
     <link href="~/libs/jquery-steps/steps.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/css/style.min.css" rel="stylesheet">
+    <style>
+    div#rec {
+        display: none;
+    }
+
+    div#pg {
+        display: none;
+    }
+
+    div#civil {
+        display: none;
+    }
+
+    div#govcivil {
+        display: none;
+    }
+
+    div#nationalfor {
+        display: none;
+    }
+
+    div#nationalid {
+        display: none;
+    }
+
+    div#passportno {
+        display: none;
+    }
+
+    </style>
 <body>
     <!-- -------------------------------------------------------------- -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -502,41 +532,45 @@
 
                                 </div>
                                 <h4>معلومات خاصة بمديرية الجنسية والاحوال المدنية</h4>
-                                <div class="row">
+                                <div class="row" >
                                     <div class="col-md-2">
-                                        <div class="mb-3">
+                                        <div class="mb-3" id="dtype" >
                                             <label asp-for="DocumentType" class="control-label"></label>
-                                            <select asp-for="DocumentType" class="form-control"
-                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.DocumentTypes>()">
-                                                <option value="">--- Select  ---</option>
+                                            <select name="dd_select" id="dd_select" class="form-control"
+                                                     onchange="toggleDiv(this.value)">
+                                                <option value="0">--- Select  ---</option>
+                                                <option value="1">هوية الاحوال المدنية</option>
+                                                <option value="2">البطاقة الموحدة</option>
+                                                <option value="3">جواز سفر</option>
+                                                <option value="4">رقم الاقامة</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="rec">
                                         <div class="mb-3">
                                             <label asp-for="RecordNumber" class="control-label"></label>
                                             <input asp-for="RecordNumber" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="pg">
                                         <div class="mb-3">
                                             <label asp-for="PageNumber" class="control-label"></label>
                                             <input asp-for="PageNumber" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="civil">
                                         <div class="mb-3">
                                             <label asp-for="CivilStatusDirectorate" class="control-label"></label>
                                             <input asp-for="CivilStatusDirectorate" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="govcivil">
                                         <div class="mb-3">
                                             <label asp-for="GovernorateCivilStatusDirectorate" class="control-label"></label>
                                             <input asp-for="GovernorateCivilStatusDirectorate" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="nationalfor">
                                         <div class="mb-3">
                                             <label asp-for="NationalIdFor" class="control-label"></label>
                                             <select asp-for="NationalIdFor" class="form-control"
@@ -545,13 +579,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="nationalid">
                                         <div class="mb-3">
                                             <label asp-for="NationalID" class="control-label"></label>
                                             <input asp-for="NationalID" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" id="passportno">
                                         <div class="mb-3">
                                             <label asp-for="PassportNo" class="control-label"></label>
                                             <input asp-for="PassportNo" class="form-control" />
@@ -907,5 +941,20 @@
                 }
             }
         })
+        function  toggleDiv(value){
+            if(value==""){
+              
+            }
+
+            const rec=document.getElementById("rec");
+            rec.style.display = value ==1 ? "block" : "none";
+            pg.style.display = value == 1 ? "block" : "none";
+            civil.style.display = value == 1 ? "block" : "none";
+            govcivil.style.display = value == 1 ? "block" : "none";
+            nationalfor.style.display = value == 2 ? "block" : "none";
+            nationalid.style.display = value == 2 ? "block" : "none";
+            passportno.style.display = value == 3 || value==4 ? "block" : "none";
+            
+        }
     </script>
 </body>

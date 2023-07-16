@@ -53,10 +53,14 @@ namespace CRVS.UI.Controllers
             {
                 ModelState.AddModelError("", "Select District");
             }
+            else if (objcategory.NahiaId == 0)
+            {
+                ModelState.AddModelError("", "Select District");
+            }
 
-            var SubCategoryID = HttpContext.Request.Form["DohId"].ToString();
-            var ProductID = HttpContext.Request.Form["DistrictId"].ToString();
-            //  var ProductID = HttpContext.Request.Form["ProductID"].ToString();
+            var DohId = HttpContext.Request.Form["DohId"].ToString();
+            var DistrictId = HttpContext.Request.Form["DistrictId"].ToString();
+            var NahiId = HttpContext.Request.Form["NahiaId"].ToString();
 
             List<Governorate> categorylist = new List<Governorate>();
             categorylist = (from Governorate in _context.Governorates
@@ -74,7 +78,7 @@ namespace CRVS.UI.Controllers
         {
             List<Doh> subCategorylist = new List<Doh>();
             subCategorylist = (from subcategory in _context.Dohs
-                               where subcategory.GovernorateId== CategoryId
+                               where subcategory.GovernorateId== CategoryId 
                                select subcategory).ToList();
             subCategorylist.Insert(0, new Doh { DohId = 0, DohName = "Select" });
 
@@ -85,13 +89,22 @@ namespace CRVS.UI.Controllers
         {
             List<District> productList = new List<District>();
             productList = (from product in _context.Districts
-                           where product.DistrictId == SubCategoryID
+                           where product.DohId== SubCategoryID
                            select product).ToList();
             productList.Insert(0, new District { DistrictId = 0, DistrictName = "Select" });
 
             return Json(new SelectList(productList, "DistrictId", "DistrictName"));
         }
+        public JsonResult Getnahia(int SubCategoryID)
+        {
+            List<Nahia> productList = new List<Nahia>();
+            productList = (from nahia in _context.Nahias
+                           where   nahia.DistrictId== SubCategoryID
+                           select nahia).ToList();
+            productList.Insert(0, new Nahia { NahiaId = 0, NahiaName = "Select" });
 
+            return Json(new SelectList(productList, "NahiaId", "NahiaName"));
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

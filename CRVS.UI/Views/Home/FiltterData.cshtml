@@ -11,6 +11,7 @@
         var items = "<option value='0'>Select</option>";
         $('#DohId').html(items);
         $('#DistrictId').html(items);
+        $('#NahiaId').html(items);
     });
 </script>
 
@@ -43,6 +44,18 @@
                 $('#DistrictId').html(items);
             });
         });
+        $('#DistrictId').change(function () {
+            var url = '@Url.Content("~/")' + "Home/Getnahia";
+            var ddlsource = "#DistrictId";
+            $.getJSON(url, { SubCategoryID: $(ddlsource).val() }, function (data) {
+                var items = '';
+                $('#NahiaId').empty();
+                $.each(data, function (i, nahia) {
+                    items += "<option value='" + nahia.value + "'>" + nahia.text + "</option>";
+                });
+                $('#NahiaId').html(items);
+            });
+        });
       
     });
 </script>
@@ -63,7 +76,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <label class="control-label">SubCategoryName</label>
-                <select class="form-control" id="DohId" name="DohName" asp-for="DohId"
+                <select class="form-control" id="DohId" name="DohId" asp-for="DohId"
                         asp-items="@(new SelectList(string.Empty,"DohId", "DohName"))"></select>
             </div>
         </div>
@@ -74,6 +87,15 @@
                 <label class="control-label">ProductName</label>
                 <select class="form-control" id="DistrictId" name="DistrictId" asp-for="DistrictId"
                         asp-items="@(new SelectList(string.Empty,"DistrictId", "DistrictName"))"></select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <label class="control-label">ProductName</label>
+                <select class="form-control" id="NahiaId" name="NahiaId" asp-for="NahiaId"
+                        asp-items="@(new SelectList(string.Empty,"NahiaId", "NahiaName"))"></select>
             </div>
         </div>
     </div>
