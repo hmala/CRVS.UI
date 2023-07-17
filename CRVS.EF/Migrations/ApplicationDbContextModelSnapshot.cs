@@ -37,8 +37,8 @@ namespace CRVS.EF.Migrations
                     b.Property<bool>("Approval")
                         .HasColumnType("bit");
 
-                    b.Property<TimeSpan>("BHour")
-                        .HasColumnType("time");
+                    b.Property<int>("BHour")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("BOD")
                         .HasColumnType("datetime2");
@@ -142,8 +142,8 @@ namespace CRVS.EF.Migrations
                     b.Property<string>("FatherMName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FatherMobile")
-                        .HasColumnType("int");
+                    b.Property<string>("FatherMobile")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FatherNationality")
                         .HasColumnType("int");
@@ -244,8 +244,8 @@ namespace CRVS.EF.Migrations
                     b.Property<string>("MotherMName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MotherMobile")
-                        .HasColumnType("int");
+                    b.Property<string>("MotherMobile")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MotherNationality")
                         .HasColumnType("int");
@@ -352,9 +352,6 @@ namespace CRVS.EF.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DohId"));
 
-                    b.Property<int>("DohCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("DohName")
                         .HasColumnType("nvarchar(max)");
 
@@ -391,9 +388,6 @@ namespace CRVS.EF.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GovernorateId"));
-
-                    b.Property<int>("GovernorateCode")
-                        .HasColumnType("int");
 
                     b.Property<string>("GovernorateName")
                         .HasColumnType("nvarchar(max)");

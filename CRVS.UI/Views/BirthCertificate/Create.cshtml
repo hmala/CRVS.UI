@@ -11,34 +11,11 @@
     <!-- Custom CSS -->
     <link href="~/css/style.min.css" rel="stylesheet">
     <style>
-    div#rec {
+    div#rec, #pg, #civil, #govcivil, #nationalfor, #nationalid, #passportno, #disty {
         display: none;
     }
 
-    div#pg {
-        display: none;
-    }
-
-    div#civil {
-        display: none;
-    }
-
-    div#govcivil {
-        display: none;
-    }
-
-    div#nationalfor {
-        display: none;
-    }
-
-    div#nationalid {
-        display: none;
-    }
-
-    div#passportno {
-        display: none;
-    }
-
+    
     </style>
 <body>
     <!-- -------------------------------------------------------------- -->
@@ -48,7 +25,7 @@
     <!-- -------------------------------------------------------------- -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- -------------------------------------------------------------- -->
-    <div id="main-wrapper">
+   <div id="main-wrapper">
 
 
 
@@ -186,12 +163,12 @@
                                             <div class="mb-3">
 
                                                 <label asp-for="BHour" class="control-label"></label>
-                                                <input asp-for="BHour" class="form-control" />
+                                                <input  asp-for="BHour" class="form-control" />
 
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="mb-3">
+                                        <div class="col-md-2" >
+                                            <div class="mb-3" >
 
                                                 <label asp-for="BOD" class="control-label"></label>
                                                 <input asp-for="BOD" class="form-control" />
@@ -239,12 +216,18 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherBOD" class="control-label"></label>
-                                            <input asp-for="FatherBOD" id="mname" class="form-control" />
-                                        </div>
+                                            <input asp-for="FatherBOD" id="FatherBOD" class="form-control" onchange="ageCalculator()" />
                                     </div>
-
+                                    </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
+                                            <label asp-for="FatherAge" class="control-label"></label>
+                                           
+                                            <input type="number" readonly id="result" name="result" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3" id="fj">
                                             <label asp-for="FatherJob" class="control-label"></label>
 
                                             <select asp-for="FatherJob" 
@@ -311,7 +294,14 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherBOD" class="control-label"></label>
-                                            <input asp-for="MotherBOD" id="mname" class="form-control" />
+                                            <input asp-for="MotherBOD" id="MotherBOD" class="form-control" onchange="ageCalculator1()" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherAge" class="control-label"></label>
+
+                                            <input type="number" readonly id="resultm" name="resultm" />
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -320,7 +310,7 @@
 
                                             <select asp-for="MotherJob"
                                                     class="form-control"
-                                                    asp-items="ViewBag.getjobs">
+                                                    asp-items="ViewBag.getjobs1">
                                                     <option value="-1">------المهنة</option>
                                                     </select>
                                         </div>
@@ -340,7 +330,7 @@
                                             <label asp-for="MotherReligion" class="control-label"></label>
                                             <select asp-for="MotherReligion"
                                                     class="form-control"
-                                                    asp-items="ViewBag.Religion">
+                                                    asp-items="ViewBag.Religion1">
                                                 <option value="-1">------الديانة</option>
                                             </select>
                                         </div>
@@ -404,13 +394,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-3"  >
                                         <label asp-for="IsDisabled" class="control-label"></label>
-                                        @Html.CheckBox("IsDisabled",false)
+                                        <input id="isdis" onclick="toggleDiv1(this.value)"  type="checkbox">
 
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-3" id="disty">
                                        <label asp-for="IsDisabledType" class="control-label"></label>
                                         <select asp-for="IsDisabledType"
                                   class="form-control"
@@ -449,7 +439,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="BirthOccurredBy" class="control-label"></label>
-                                            <select asp-for="BirthOccurredBy" class="form-control"
+                                            <select asp-for="BirthOccurredBy" class="form-control" 
                                                     asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.BirthOccurredBys>()">
                                                 <option value="">--- Select  ---</option>
                                             </select>
@@ -941,6 +931,21 @@
                 }
             }
         })
+     
+
+        $('#disty').hide(); //initially dropdown is hidden
+        $('#isdis').change(function () { //change click to hidden
+
+                if ($(this).is(':checked')) { //check if checkbox is checked
+                $('#disty').show(); //show if checked
+                } else {
+                $('#disty').hide(); //hide if unchecked
+                }
+
+            })
+           
+
+        
         function  toggleDiv(value){
             if(value==""){
               
@@ -949,12 +954,78 @@
             const rec=document.getElementById("rec");
             rec.style.display = value ==1 ? "block" : "none";
             pg.style.display = value == 1 ? "block" : "none";
-            civil.style.display = value == 1 ? "block" : "none";
-            govcivil.style.display = value == 1 ? "block" : "none";
+            civil.style.display = value == 1 || value==2 ? "block" : "none";
+            govcivil.style.display = value == 1 || value==2 ? "block" : "none";
             nationalfor.style.display = value == 2 ? "block" : "none";
             nationalid.style.display = value == 2 ? "block" : "none";
             passportno.style.display = value == 3 || value==4 ? "block" : "none";
             
+        }
+        function toggleDiv1(value) {
+            if (value == "") {
+
+            }
+
+            const rec = document.getElementById("rec");
+            rec.style.display = value == 1 ? "block" : "none";
+            pg.style.display = value == 1 ? "block" : "none";
+            civil.style.display = value == 1 || value == 2 ? "block" : "none";
+            govcivil.style.display = value == 1 || value == 2 ? "block" : "none";
+            nationalfor.style.display = value == 2 ? "block" : "none";
+            nationalid.style.display = value == 2 ? "block" : "none";
+           
+
+        }
+
+        function ageCalculator() {
+            var userinput = document.getElementById("FatherBOD").value;
+            var dob = new Date(userinput);
+            if (userinput == null || userinput == '') {
+                document.getElementById("message").innerHTML = "**Choose a date please!";
+                return false;
+            } else {
+
+                //calculate month difference from current date in time
+                var month_diff = Date.now() - dob.getTime();
+
+                //convert the calculated difference in date format
+                var age_dt = new Date(month_diff);
+
+                //extract year from date
+                var year = age_dt.getUTCFullYear();
+
+                //now calculate the age of the user
+                var age = Math.abs(year - 1970);
+
+                //display the calculated age
+                //return document.getElementById("result").innerHTML = age;
+                return document.getElementById("result").value = age;
+            }
+        }
+        function ageCalculator1() {
+            var userinput1 = document.getElementById("MotherBOD").value;
+            var dob1 = new Date(userinput1);
+            if (userinput1 == null || userinput1 == '') {
+                document.getElementById("message").innerHTML = "**Choose a date please!";
+                return false;
+            } else {
+
+                //calculate month difference from current date in time
+                var month_diff1 = Date.now() - dob1.getTime();
+
+                //convert the calculated difference in date format
+                var age_dt1 = new Date(month_diff1);
+
+                //extract year from date
+                var year1 = age_dt1.getUTCFullYear();
+
+                //now calculate the age of the user
+                var age1 = Math.abs(year1 - 1970);
+
+                //display the calculated age
+                //return document.getElementById("result").innerHTML = age;
+                return document.getElementById("resultm").value = age1;
+            }
         }
     </script>
 </body>

@@ -52,7 +52,7 @@ namespace CRVS.Core.Models
        
       //  //        [Required]
         [DisplayName("الساعة")]
-        public TimeSpan BHour { get; set; }
+        public int BHour { get; set; }
       //  //        [Required]
         [DisplayName("تاريخ الولادة")]
         public DateTime BOD { get; set; }
@@ -89,7 +89,7 @@ namespace CRVS.Core.Models
         public int FatherReligion { get; set; }
         [DisplayName("رقم موبايل ")]
     //    //        [Required]
-        public int FatherMobile { get; set; }
+        public string? FatherMobile { get; set; }
         [DisplayName("اسم الام")]
     //    //        [Required]
         public string? MotherFName { get; set; }
@@ -118,7 +118,7 @@ namespace CRVS.Core.Models
 //        //        [Required]
         public int MotherReligion { get; set; }
         [DisplayName("رقم موبايل ")]
-        public int MotherMobile { get; set; }
+        public string? MotherMobile { get; set; }
         [DisplayName("هل هنالك صلة قرابة بين الام والاب؟")]
 //        //        [Required]
         public bool Relative { get; set; }
@@ -189,7 +189,7 @@ namespace CRVS.Core.Models
         [DisplayName("المحافظة")]
    
         public string? GovernorateCivilStatusDirectorate { get; set; }
-        [DisplayName("رقم البطاقة للاب او الام")]
+        [DisplayName(" البطاقة الموحدة للاب او الام")]
         public NationalIdFors NationalIdFor { get; set; }
         [DisplayName("رقم البطاقة الموحدة")]
         public int NationalID { get; set; }

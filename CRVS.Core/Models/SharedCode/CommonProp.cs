@@ -18,10 +18,28 @@ namespace CRVS.Core.Models.SharedCode
         #endregion
 
         #region Enums
-        public enum Genders{ ذكر, أنثى, خنثى }
+        public enum Genders{
+            [Display(Name = "ذكر")]
+
+            ذكر = 1,
+            [Display(Name = "أنثى")]
+
+            أثنى = 2,
+                 [Display(Name = "خنثى")]
+
+            خنثى = 3
+        }
         public enum BirthTypes { طبيعية, قيصرية }
         public enum NumberOfBirths { مفردة, توأم, ثلاثية, اكثر }
-        public enum PlaceOfBirths { بيت, مستشفى_او_مركزصحي }
+        public enum PlaceOfBirths {
+            [Display(Name = "بيت")]
+
+            home = 1,
+            [Display(Name = "مستشفى او مركز صحي")]
+
+            HOSP = 2,
+          
+        }
         public enum BirthOccurredBys { طبيب, ممرضة_مجازة_بالتوليد,قابلة_مجازة,اخرى }
         public enum DocumentTypes { هوية_الاحوال_المدنية,البطاقة_الموحدة,جواز_سفر,رقم_الاقامة}
         public enum NationalIdFors {

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CRVS.EF.Migrations
 {
     /// <inheritdoc />
-    public partial class f1 : Migration
+    public partial class h2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,7 +66,7 @@ namespace CRVS.EF.Migrations
                     Village = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthType = table.Column<int>(type: "int", nullable: true),
                     NumberOfBirth = table.Column<int>(type: "int", nullable: true),
-                    BHour = table.Column<TimeSpan>(type: "time", nullable: false),
+                    BHour = table.Column<int>(type: "int", nullable: false),
                     BOD = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BODText = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FatherFName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -78,7 +78,7 @@ namespace CRVS.EF.Migrations
                     FatherJob = table.Column<int>(type: "int", nullable: false),
                     FatherNationality = table.Column<int>(type: "int", nullable: false),
                     FatherReligion = table.Column<int>(type: "int", nullable: false),
-                    FatherMobile = table.Column<int>(type: "int", nullable: false),
+                    FatherMobile = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MotherFName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MotherMName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MotherLName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -88,7 +88,7 @@ namespace CRVS.EF.Migrations
                     MotherJob = table.Column<int>(type: "int", nullable: false),
                     MotherNationality = table.Column<int>(type: "int", nullable: false),
                     MotherReligion = table.Column<int>(type: "int", nullable: false),
-                    MotherMobile = table.Column<int>(type: "int", nullable: false),
+                    MotherMobile = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Relative = table.Column<bool>(type: "bit", nullable: false),
                     Alive = table.Column<int>(type: "int", nullable: false),
                     BornAliveThenDied = table.Column<int>(type: "int", nullable: false),
@@ -199,7 +199,6 @@ namespace CRVS.EF.Migrations
                 {
                     GovernorateId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    GovernorateCode = table.Column<int>(type: "int", nullable: false),
                     GovernorateName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -390,7 +389,6 @@ namespace CRVS.EF.Migrations
                 {
                     DohId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DohCode = table.Column<int>(type: "int", nullable: false),
                     DohName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GovernorateId = table.Column<int>(type: "int", nullable: false)
                 },

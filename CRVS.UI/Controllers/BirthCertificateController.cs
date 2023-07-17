@@ -40,18 +40,32 @@ namespace CRVS.UI.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var oddData = _context.Jobs.ToList().Where((c, i) => i % 2 != 0);
+            var evnData = _context.Jobs.ToList().Where((c, i) => i % 2 == 0);
+            var oddData1 = _context.Religions.ToList().Where((c, i) => i % 2 != 0);
+            var evnData1 = _context.Religions.ToList().Where((c, i) => i % 2 == 0);
+
 
             ViewBag.Disabledtype = new SelectList(_context.DisabledTypes, "DisabledTypeCode", "DisabledTypeName");
-            ViewBag.getjobs = new SelectList(_context.Jobs, "JobId", "JobName");
+            ViewBag.getjobs = new SelectList(evnData, "JobId", "JobName");
+            ViewBag.getjobs1 = new SelectList(oddData, "JobId", "JobName");
             ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
-            ViewBag.Religion = new SelectList(_context.Religions, "ReligionId", "ReligionName");
+            ViewBag.Religion = new SelectList(evnData1, "ReligionId", "ReligionName");
+            ViewBag.Religion1 = new SelectList(oddData1, "ReligionId", "ReligionName");
 
             return View();
         }
         [HttpPost]
-        public IActionResult Create(BirthCertificate model)
+        public IActionResult Create(BirthCertificate model,int result,int resultm)
         {
+            
+
+            
+            
+
            
+            model.FatherAge= result;
+                 model.MotherAge= resultm;
                 _BaseRepository.Add(model);
                 _BaseRepository.SaveChanges();
                 return RedirectToAction("Create");
