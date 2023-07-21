@@ -11,7 +11,7 @@ namespace CRVS.Core.Models.SharedCode
     public class CommonProp
     {
         #region AllProp
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }=false;
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
 
@@ -41,7 +41,22 @@ namespace CRVS.Core.Models.SharedCode
           
         }
         public enum BirthOccurredBys { طبيب, ممرضة_مجازة_بالتوليد,قابلة_مجازة,اخرى }
-        public enum DocumentTypes { هوية_الاحوال_المدنية,البطاقة_الموحدة,جواز_سفر,رقم_الاقامة}
+        public enum DocumentTypes {
+            [Display(Name = "هوية_الاحوال المدنية")]
+
+            هوية_الاحوال_المدنية = 1,
+            [Display(Name = "البطاقة الموحدة")]
+
+            البطاقة_الموحدة = 2,
+            [Display(Name = "جواز سفر")]
+
+            جواز_سفر = 3,
+
+            [Display(Name = "رقم الاقامة")]
+
+            رقم_الاقامة = 4
+
+          }
         public enum NationalIdFors {
             [Display(Name = "الاب")]
 

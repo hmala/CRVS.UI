@@ -1,6 +1,8 @@
 ﻿using CRVS.Core.IRepositories;
+using CRVS.Core.Models;
 using CRVS.Core.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +25,11 @@ namespace CRVS.EF.Repositories
             SaveChanges();
         }
 
-      
-        public void Delete(int id)
+
+
+        public void Delete(string CertificateNo)
         {
-            var entity = _context.Set<T>().Find(id);
+            var entity = _context.Set<T>().Find(CertificateNo);
             if (entity != null)
             {
                 _context.Set<T>().Remove(entity);
@@ -34,10 +37,7 @@ namespace CRVS.EF.Repositories
             }
         }
 
-        public Task<IEnumerable<T>> GetAlAsync()
-        {
-            throw new NotImplementedException();
-        }
+
 
         public IEnumerable<T> GetAll()
         {
@@ -54,15 +54,17 @@ namespace CRVS.EF.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public T GetById(int id)
+        public T GetById(string CertificateNo)
         {
-            return _context.Set<T>().Find(id)!;
+            return _context.Set<T>().Find(CertificateNo)!;
 
         }
 
-        public async Task<T> GetByIdAsync(int id)
+
+
+        public async Task<T> GetByIdAsync(string CertificateNo)
         {
-            return await (_context.Set<T>().FindAsync(id));
+            return await (_context.Set<T>().FindAsync(CertificateNo));
         }
 
         public void SaveChanges()
@@ -70,16 +72,10 @@ namespace CRVS.EF.Repositories
             _context.SaveChanges();
         }
 
-        public void Update(int id, T model)
+        public void Update(string CertificateNo, T model)
         {
-            var entity = _context.Set<T>().Find(id);
-            if (entity != null)
-            {
-                _context.Set<T>().Update(entity);
+                _context.Set<T>().Update(model);
                 SaveChanges();
             }
-
-
         }
     }
-}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRVS.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,17 @@ namespace CRVS.Core.IRepositories
 {
     public interface IBaseRepository<T> where T : class
     {
-        T GetById(int id);
-        Task<T> GetByIdAsync(int id);
+    
+        
+        T GetById(string CertificateNo);
+        
         IEnumerable<T> GetAll();
-        Task<IEnumerable<T>> GetAlAsync();
+       
         void Add(T model);
-        void Update(int id, T model);
-        void Delete(int id);
+        void Update(string CertificateNo, T model);
+        void Delete(string CertificateNo);
 
         void SaveChanges();
-       
+        
     }
 }

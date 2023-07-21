@@ -119,7 +119,7 @@
                                             <div class="mb-3">
 
                                                 <label asp-for="Nahia" class="control-label"></label>
-                                                <input asp-for="Nahia" class="form-control" />
+                                                <input asp-for="Nahia"  class="form-control" />
 
                                             </div>
                                         </div>
@@ -169,17 +169,16 @@
                                         </div>
                                         <div class="col-md-2" >
                                             <div class="mb-3" >
-
+                                              
                                                 <label asp-for="BOD" class="control-label"></label>
-                                                <input asp-for="BOD" class="form-control" />
-
+                                                <input asp-for="BOD"  class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
 
                                                 <label asp-for="BODText" class="control-label"></label>
-                                                <input asp-for="BODText" class="form-control" />
+                                                <input asp-for="BODText" id="bd" name="bd" class="form-control" />
 
                                             </div>
                                         </div>
@@ -194,7 +193,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherFName" class="control-label"></label>
-                                            <input asp-for="FatherFName" id="mname" class="form-control" />
+                                            <input asp-for="FatherFName" id="fname" class="form-control" />
 
                                         </div>
 
@@ -210,15 +209,17 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherLName" class="control-label"></label>
-                                            <input asp-for="FatherLName" id="mname" class="form-control" />
+                                            <input asp-for="FatherLName" id="lname" class="form-control" />
                                         </div>
                                     </div>
+
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherBOD" class="control-label"></label>
                                             <input asp-for="FatherBOD" id="FatherBOD" class="form-control" onchange="ageCalculator()" />
                                     </div>
                                     </div>
+                                    
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherAge" class="control-label"></label>
@@ -264,7 +265,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherMobile" class="control-label"></label>
-                                            <input asp-for="FatherMobile" id="mname" class="form-control" />
+                                            <input asp-for="FatherMobile"  class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -272,7 +273,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherFName" class="control-label"></label>
-                                            <input asp-for="MotherFName" id="mname" class="form-control" />
+                                            <input asp-for="MotherFName"  class="form-control" />
 
                                         </div>
 
@@ -281,14 +282,14 @@
                                         <div class="mb-3">
 
                                             <label asp-for="MotherMName" class="control-label"></label>
-                                            <input asp-for="MotherMName" id="mname" class="form-control" />
+                                            <input asp-for="MotherMName"  class="form-control" />
 
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherLName" class="control-label"></label>
-                                            <input asp-for="MotherLName" id="mname" class="form-control" />
+                                            <input asp-for="MotherLName"  class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -338,7 +339,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="MotherMobile" class="control-label"></label>
-                                            <input asp-for="MotherMobile" id="mname" class="form-control" />
+                                            <input asp-for="MotherMobile"  class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -395,9 +396,8 @@
                                     </div>
 
                                     <div class="mb-3"  >
-                                        <label asp-for="IsDisabled" class="control-label"></label>
-                                        <input id="isdis" onclick="toggleDiv1(this.value)"  type="checkbox">
-
+                                        <label asp-for="IsDisabled" class="control-label"></label>  
+                                        <input id="IsDisabled" type="checkbox" name="IsDisabled">
                                     </div>
 
                                     <div class="mb-3" id="disty">
@@ -931,13 +931,15 @@
                 }
             }
         })
-     
 
+      
         $('#disty').hide(); //initially dropdown is hidden
-        $('#isdis').change(function () { //change click to hidden
+        $('#IsDisabled').change(function () { //change click to hidden
 
-                if ($(this).is(':checked')) { //check if checkbox is checked
-                $('#disty').show(); //show if checked
+            if ($(IsDisabled).is(':checked')) {
+                $('#IsDisabled').val($(this).is(':checked'));
+                //check if checkbox is checked
+                $('#disty').show();  //show if checked
                 } else {
                 $('#disty').hide(); //hide if unchecked
                 }
@@ -976,7 +978,7 @@
            
 
         }
-
+        
         function ageCalculator() {
             var userinput = document.getElementById("FatherBOD").value;
             var dob = new Date(userinput);
@@ -1002,6 +1004,14 @@
                 return document.getElementById("result").value = age;
             }
         }
+
+       
+     
+
+
+
+
+
         function ageCalculator1() {
             var userinput1 = document.getElementById("MotherBOD").value;
             var dob1 = new Date(userinput1);
@@ -1027,5 +1037,6 @@
                 return document.getElementById("resultm").value = age1;
             }
         }
+   
     </script>
 </body>

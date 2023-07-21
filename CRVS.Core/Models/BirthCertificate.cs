@@ -55,6 +55,7 @@ namespace CRVS.Core.Models
         public int BHour { get; set; }
       //  //        [Required]
         [DisplayName("تاريخ الولادة")]
+        [DataType(DataType.Date)]
         public DateTime BOD { get; set; }
       //  //        [Required]
         [DisplayName("التاريخ كتابتاً")]
@@ -68,6 +69,7 @@ namespace CRVS.Core.Models
      //   //        [Required]
         [DisplayName("اسم والد الجد")]
         public string? FatherLName { get; set; }
+        [DisplayName("اسم الاب الثلاثي")]
         public string? FatherFullName { get; set; }
    //   //        [Required]
         [DisplayName("تاريخ الولادة")]
@@ -99,6 +101,7 @@ namespace CRVS.Core.Models
         [DisplayName("اسم جد الام")]
      //   //        [Required]
         public string? MotherLName { get; set; }
+        [DisplayName("اسم الام الثلاثي")]
         public string? MotherFullName { get; set; }
 
         [DisplayName("تاريخ الولادة")]
@@ -245,5 +248,6 @@ namespace CRVS.Core.Models
         public bool SecondStage { get; set; }
         public bool Approval { get; set; }
         public bool Creator { get; set; }
+
     }
 }

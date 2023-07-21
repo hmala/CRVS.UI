@@ -30,12 +30,18 @@ namespace CRVS.UI.Controllers
         [HttpGet]
        
 
-        public IActionResult Index()
+        public IActionResult Index( )
         {
-            return View(_BaseRepository.GetAll);
+            var birth= _context.BirthCertificates.Where(x=>x.IsDeleted==false).ToList();
+            return View(birth);
            
         }
-     
+        public IActionResult Index1()
+        {
+            var birth = _context.BirthCertificates.Where(x => x.IsDeleted == true).ToList();
+            return View(birth);
+
+        }
 
         [HttpGet]
         public IActionResult Create()
@@ -52,45 +58,87 @@ namespace CRVS.UI.Controllers
             ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
             ViewBag.Religion = new SelectList(evnData1, "ReligionId", "ReligionName");
             ViewBag.Religion1 = new SelectList(oddData1, "ReligionId", "ReligionName");
-
+            
             return View();
         }
         [HttpPost]
-        public IActionResult Create(BirthCertificate model,int result,int resultm)
+        public IActionResult Create(BirthCertificate model,int result,int resultm,string fullname, bool IsDisabled)
         {
-            
-
-            
-            
-
-           
-            model.FatherAge= result;
+                 
+                 model.FatherFullName = fullname;
+                 model.FatherAge= result;
                  model.MotherAge= resultm;
+                 model.IsDisabled= IsDisabled;
                 _BaseRepository.Add(model);
                 _BaseRepository.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("Index");
             
          
 
 
         }
-        private string UploadedFile(BirthCertificateViewModel CourseInput)
+        [HttpGet]
+        public IActionResult Edit(string CertificateNo)
         {
-            string wwwPath = this._environment.WebRootPath;
-            string contentPath = this._environment.ContentRootPath;
+            var oddData = _context.Jobs.ToList().Where((c, i) => i % 2 != 0);
+            var evnData = _context.Jobs.ToList().Where((c, i) => i % 2 == 0);
+            var oddData1 = _context.Religions.ToList().Where((c, i) => i % 2 != 0);
+            var evnData1 = _context.Religions.ToList().Where((c, i) => i % 2 == 0);
 
-            string path = Path.Combine(this._environment.WebRootPath, "Uploads");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            string fileName = Path.GetFileNameWithoutExtension(CourseInput.ImgBirthCertificate!.FileName);
-            string newName = fileName + Guid.NewGuid().ToString() + Path.GetExtension(CourseInput.ImgBirthCertificate.FileName);
-            using (FileStream stream = new FileStream(Path.Combine(path, newName), FileMode.Create))
-            {
-                CourseInput.ImgBirthCertificate.CopyTo(stream);
-            }
-            return "\\Uploads\\" + newName;
+
+            ViewBag.Disabledtype = new SelectList(_context.DisabledTypes, "DisabledTypeCode", "DisabledTypeName");
+            ViewBag.getjobs = new SelectList(evnData, "JobId", "JobName");
+            ViewBag.getjobs1 = new SelectList(oddData, "JobId", "JobName");
+            ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
+            ViewBag.Religion = new SelectList(evnData1, "ReligionId", "ReligionName");
+            ViewBag.Religion1 = new SelectList(oddData1, "ReligionId", "ReligionName");
+
+            BirthCertificate birth =  _BaseRepository.GetAll().Where(x=>x.CertificateNo==CertificateNo).SingleOrDefault()!;
+            
+                return View(birth);
+
+            
         }
+
+        [HttpPost]
+        public  IActionResult Edit(string CertificateNo,BirthCertificate model)
+        {
+
+
+            _BaseRepository.Update(CertificateNo,model);
+
+            return RedirectToAction("Index");
+
+
+        }
+        [HttpGet]
+        public IActionResult Details(string CertificateNo)
+        {
+            var oddData = _context.Jobs.ToList().Where((c, i) => i % 2 != 0);
+            var evnData = _context.Jobs.ToList().Where((c, i) => i % 2 == 0);
+            var oddData1 = _context.Religions.ToList().Where((c, i) => i % 2 != 0);
+            var evnData1 = _context.Religions.ToList().Where((c, i) => i % 2 == 0);
+
+
+            ViewBag.Disabledtype = new SelectList(_context.DisabledTypes, "DisabledTypeCode", "DisabledTypeName");
+            ViewBag.getjobs = new SelectList(evnData, "JobId", "JobName");
+            ViewBag.getjobs1 = new SelectList(oddData, "JobId", "JobName");
+            ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
+            ViewBag.Religion = new SelectList(evnData1, "ReligionId", "ReligionName");
+            ViewBag.Religion1 = new SelectList(oddData1, "ReligionId", "ReligionName");
+
+            BirthCertificate birth = _BaseRepository.GetAll().Where(x => x.CertificateNo == CertificateNo).SingleOrDefault()!;
+
+            return View(birth);
+        }
+        [HttpGet]
+        public IActionResult Delete(string CertificateNo)
+        {
+            var birth = _BaseRepository.GetAll().Where(x => x.CertificateNo == CertificateNo).SingleOrDefault()!;
+            _context.BirthCertificates.Remove(birth);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

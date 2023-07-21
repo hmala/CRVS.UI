@@ -27,13 +27,13 @@ namespace CRVS.UI.Controllers
 
 
             // Default Values
-         
 
 
-                _BaseRepository.Add(job);
-                _BaseRepository.SaveChanges();
-                return RedirectToAction("Index");
-           
+
+            _BaseRepository.Add(job);
+            _BaseRepository.SaveChanges();
+            return RedirectToAction("Index");
+
         }
     }
 }

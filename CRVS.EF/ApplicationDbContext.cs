@@ -26,5 +26,20 @@ namespace CRVS.EF
         public DbSet<Nahia> Nahias { get; set; }
         public DbSet<Nationality> Nationalities { get; set; }
         public DbSet<Religion> Religions { get; set; }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                var entity = entry.Entity;
+                if (entry.State==EntityState.Deleted)
+                {
+                    entry.State = EntityState.Modified;
+                    entity.GetType().GetProperty("IsDeleted").SetValue(entity,true);
+                }
+            }
+            return base.SaveChanges();
+        
+        }
     }
 }

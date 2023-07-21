@@ -1,0 +1,1039 @@
+﻿@model CRVS.Core.Models.BirthCertificate
+@{
+    ViewData["Title"] ="Edit";
+}
+<link rel="canonical" href="https://www.wrappixel.com/templates/adminpro/" />
+<!-- Favicon icon -->
+<link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon.png">
+<!-- This page CSS -->
+<link href="~/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
+<link href="~/libs/jquery-steps/steps.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="~/css/style.min.css" rel="stylesheet">
+<style>
+    div#rec, #pg, #civil, #govcivil, #nationalfor, #nationalid, #passportno, #disty {
+        display: none;
+    }
+
+</style>
+<body>
+    <!-- -------------------------------------------------------------- -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- -------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------- -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- -------------------------------------------------------------- -->
+  
+    <div id="main-wrapper">
+
+
+
+        <!-- Start Page Content -->
+        <!-- -------------------------------------------------------------- -->
+        <div class="row">
+            <!-- -------------------------------------------------------------- -->
+            <!-- Example -->
+            <!-- -------------------------------------------------------------- -->
+            <!-- -------------------------------------------------------------- -->
+            <!-- Example -->
+            <!-- -------------------------------------------------------------- -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="border-bottom title-part-padding">
+                        <h4 class="card-title mb-0">شهادة الولادة العراقية</h4>
+                    </div>
+
+                    <div class="card-body wizard-content">
+                        <h6 class="card-subtitle mb-3"></h6>
+                        <form  method="post" asp-action="Edit" asp-controller="BirthCertificate" enctype="multipart/form-data" class="tab-wizard wizard-circle">
+                           <input type="hidden" asp-for="BirthCertificateId" />
+                            <!-- Step 1 -->
+                            <h6>معلومات الوليد</h6>
+
+                            <section>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="CertificateNo" class="control-label"></label>
+                                            <input asp-for="CertificateNo" class="form-control" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="ChildName" class="control-label"></label>
+                                                <input asp-for="ChildName" class="form-control" />
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="Gender" class="control-label"></label>
+
+                                                <select asp-for="Gender" class="form-control"
+                                                        asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.Genders>()">
+                                                    <option value="">--- Select  ---</option>
+                                                </select>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="Governorate" class="control-label"></label>
+                                                <input asp-for="Governorate" class="form-control" />
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="DOH" class="control-label"></label>
+                                                <input asp-for="DOH" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="District" class="control-label"></label>
+                                                <input asp-for="District" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="Nahia" class="control-label"></label>
+                                                <input asp-for="Nahia" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="Village" class="control-label"></label>
+                                                <input asp-for="Village" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="BirthType" class="control-label"></label>
+                                                <select asp-for="BirthType" class="form-control"
+                                                        asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.BirthTypes>()">
+                                                    <option value="">--- Select  ---</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="NumberOfBirth" class="control-label"></label>
+                                                <select asp-for="NumberOfBirth" class="form-control"
+                                                        asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.NumberOfBirths>()">
+                                                    <option value="">--- Select  ---</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3> تاريخ الولادة رقما وكتابة</h3>
+                                        <div class="col-md-2">
+
+                                            <div class="mb-3">
+
+                                                <label asp-for="BHour" class="control-label"></label>
+                                                <input asp-for="BHour" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="mb-3">
+
+                                                <label asp-for="BOD" class="control-label"></label>
+                                                <input asp-for="BOD" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+
+                                                <label asp-for="BODText" class="control-label"></label>
+                                                <input asp-for="BODText" id="bd" name="bd" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </section>
+
+                            <!-- Step 2 -->
+                            <h6>معلومات الاب والام</h6>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherFName" class="control-label"></label>
+                                            <input asp-for="FatherFName" id="fname" class="form-control" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+
+                                            <label asp-for="FatherMName" class="control-label"></label>
+                                            <input asp-for="FatherMName" id="mname" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherLName" class="control-label"></label>
+                                            <input asp-for="FatherLName" id="lname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherBOD" class="control-label"></label>
+                                            <input asp-for="FatherBOD" id="FatherBOD" class="form-control" onchange="ageCalculator()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherAge" class="control-label"></label>
+
+                                            <input type="number" readonly id="result" name="result" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3" id="fj">
+                                            <label asp-for="FatherJob" class="control-label"></label>
+
+                                            <select asp-for="FatherJob"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.getjobs">
+                                                <option value="-1">------المهنة</option>
+
+
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherNationality" class="control-label"></label>
+                                            <select asp-for="FatherNationality"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Nationality">
+                                                <option value="-1">------الجنسية</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherReligion" class="control-label"></label>
+                                            <select asp-for="FatherReligion"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Religion">
+                                                <option value="-1">------الديانة</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FatherMobile" class="control-label"></label>
+                                            <input asp-for="FatherMobile" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherFName" class="control-label"></label>
+                                            <input asp-for="MotherFName" class="form-control" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+
+                                            <label asp-for="MotherMName" class="control-label"></label>
+                                            <input asp-for="MotherMName" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherLName" class="control-label"></label>
+                                            <input asp-for="MotherLName" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherBOD" class="control-label"></label>
+                                            <input asp-for="MotherBOD" id="MotherBOD" class="form-control" onchange="ageCalculator1()" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherAge" class="control-label"></label>
+
+                                            <input type="number" readonly id="resultm" name="resultm" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherJob" class="control-label"></label>
+
+                                            <select asp-for="MotherJob"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.getjobs1">
+                                                <option value="-1">------المهنة</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherNationality" class="control-label"></label>
+                                            <select asp-for="MotherNationality"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Nationality">
+                                                <option value="-1">------الجنسية</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherReligion" class="control-label"></label>
+                                            <select asp-for="MotherReligion"
+                                                    class="form-control"
+                                                    asp-items="ViewBag.Religion1">
+                                                <option value="-1">------الديانة</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="MotherMobile" class="control-label"></label>
+                                            <input asp-for="MotherMobile" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="mb-1">
+                                        <label asp-for="Relative" class="control-label"></label>
+                                        @Html.CheckBox("Relative",false)
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </section>
+                            <!-- Step 3 -->
+                            <h6>عدد المواليد السابقة للام عدا هذا الطفل </h6>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="Alive" class="control-label"></label>
+                                            <input asp-for="Alive" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BornAliveThenDied" class="control-label"></label>
+                                            <input asp-for="BornAliveThenDied" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="StillBirth" class="control-label"></label>
+                                            <input asp-for="StillBirth" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BornDisable" class="control-label"></label>
+                                            <input asp-for="BornDisable" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="NoAbortion" class="control-label"></label>
+                                            <input asp-for="NoAbortion" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label asp-for="IsDisabled" class="control-label"></label>
+                                        <input id="IsDisabled" type="checkbox" name="IsDisabled">
+
+                                    </div>
+
+                                    <div class="mb-3" id="disty">
+                                        <label asp-for="IsDisabledType" class="control-label"></label>
+                                        <select asp-for="IsDisabledType"
+                                                class="form-control"
+                                                asp-items=" ViewBag.Disabledtype">
+                                            <option value="-1">------التشوهات الخلقية</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Step 4 -->
+                            <h6>معلومات الوليد والعائلة </h6>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="DurationOfPregnancy" class="control-label"></label>
+                                            <input asp-for="DurationOfPregnancy" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BabyWeight" class="control-label"></label>
+                                            <input asp-for="BabyWeight" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="PlaceOfBirth" class="control-label"></label>
+                                            <select asp-for="PlaceOfBirth" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.PlaceOfBirths>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BirthOccurredBy" class="control-label"></label>
+                                            <select asp-for="BirthOccurredBy" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.BirthOccurredBys>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="LicenseNo" class="control-label"></label>
+                                            <input asp-for="LicenseNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="LicenseYear" class="control-label"></label>
+                                            <input asp-for="LicenseYear" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>العنوان الدائم لعائلة المولود</h4>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyGovernorate" class="control-label"></label>
+                                            <input asp-for="FamilyGovernorate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyDistrict" class="control-label"></label>
+                                            <input asp-for="FamilyDistrict" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyNahiah" class="control-label"></label>
+                                            <input asp-for="FamilyNahiah" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyMahala" class="control-label"></label>
+                                            <input asp-for="FamilyMahala" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyZigag" class="control-label"></label>
+                                            <input asp-for="FamilyZigag" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyHomeNo" class="control-label"></label>
+                                            <input asp-for="FamilyHomeNo" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyDOH" class="control-label"></label>
+                                            <input asp-for="FamilyDOH" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilySector" class="control-label"></label>
+                                            <input asp-for="FamilySector" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="FamilyPHC" class="control-label"></label>
+                                            <input asp-for="FamilyPHC" class="form-control" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <h4>معلومات خاصة بمديرية الجنسية والاحوال المدنية</h4>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3" id="dtype">
+                                            <label asp-for="DocumentType" class="control-label"></label>
+                                            <select name="dd_select" id="dd_select" class="form-control"
+                                                    onchange="toggleDiv(this.value)">
+                                                <option value="0">--- Select  ---</option>
+                                                <option value="1">هوية الاحوال المدنية</option>
+                                                <option value="2">البطاقة الموحدة</option>
+                                                <option value="3">جواز سفر</option>
+                                                <option value="4">رقم الاقامة</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="rec">
+                                        <div class="mb-3">
+                                            <label asp-for="RecordNumber" class="control-label"></label>
+                                            <input asp-for="RecordNumber" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="pg">
+                                        <div class="mb-3">
+                                            <label asp-for="PageNumber" class="control-label"></label>
+                                            <input asp-for="PageNumber" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="civil">
+                                        <div class="mb-3">
+                                            <label asp-for="CivilStatusDirectorate" class="control-label"></label>
+                                            <input asp-for="CivilStatusDirectorate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="govcivil">
+                                        <div class="mb-3">
+                                            <label asp-for="GovernorateCivilStatusDirectorate" class="control-label"></label>
+                                            <input asp-for="GovernorateCivilStatusDirectorate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="nationalfor">
+                                        <div class="mb-3">
+                                            <label asp-for="NationalIdFor" class="control-label"></label>
+                                            <select asp-for="NationalIdFor" class="form-control"
+                                                    asp-items="Html.GetEnumSelectList<CRVS.Core.Models.SharedCode.CommonProp.NationalIdFors>()">
+                                                <option value="">--- Select  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="nationalid">
+                                        <div class="mb-3">
+                                            <label asp-for="NationalID" class="control-label"></label>
+                                            <input asp-for="NationalID" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" id="passportno">
+                                        <div class="mb-3">
+                                            <label asp-for="PassportNo" class="control-label"></label>
+                                            <input asp-for="PassportNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
+                            <!-- Step 4 -->
+                            <h6>معلومات اخرى</h6>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="InformerName" class="control-label"></label>
+                                            <input asp-for="InformerName" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="InformerJobTitle" class="control-label"></label>
+                                            <input asp-for="InformerJobTitle" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="KinshipOfTheNewborn" class="control-label"></label>
+                                            <input asp-for="KinshipOfTheNewborn" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BirthPerformerName" class="control-label"></label>
+                                            <input asp-for="BirthPerformerName" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="BirthPerformerWorkingAddress" class="control-label"></label>
+                                            <input asp-for="BirthPerformerWorkingAddress" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label asp-for="HospitalManagerName" class="control-label"></label>
+                                            <input asp-for="HospitalManagerName" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="RationCard" class="control-label"></label>
+                                            <input asp-for="RationCard" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgBirthCertificate" class="control-label"></label>
+                                            <input asp-for="ImgBirthCertificate" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgMarriageCertificate" class="control-label"></label>
+                                            <input asp-for="ImgMarriageCertificate" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgFatherUnifiedNationalIdFront" class="control-label"></label>
+                                            <input asp-for="ImgFatherUnifiedNationalIdFront" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgFatherUnifiedNationalIdBack" class="control-label"></label>
+                                            <input asp-for="ImgFatherUnifiedNationalIdBack" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgMotherUnifiedNationalIdFront" class="control-label"></label>
+                                            <input asp-for="ImgMotherUnifiedNationalIdFront" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgMotherUnifiedNationalIdBack" class="control-label"></label>
+                                            <input asp-for="ImgMotherUnifiedNationalIdBack" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgResidencyCardFront" class="control-label"></label>
+                                            <input asp-for="ImgResidencyCardFront" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <label asp-for="ImgResidencyCardBack" class="control-label"></label>
+                                            <input asp-for="ImgResidencyCardBack" class="form-control" />
+                                        </div>
+                                        <input type="submit" value="Create" class="btn btn-info" />
+
+                                    </div>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------- -->
+
+        </div>
+        <!-- -------------------------------------------------------------- -->
+        <!-- End PAge Content -->
+        <!-- -------------------------------------------------------------- -->
+    </div>
+    <!-- -------------------------------------------------------------- -->
+    <!-- End Container fluid  -->
+    <!-- -------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------- -->
+
+    <aside class="customizer">
+        <a href="javascript:void(0)" class="service-panel-toggle"><i data-feather="settings" class="feather-sm"></i></a>
+        <div class="customizer-body">
+            <ul class="nav customizer-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab"
+                       aria-controls="pills-home" aria-selected="true"><i class="ri-tools-fill fs-6"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#chat" role="tab"
+                       aria-controls="chat" aria-selected="false"><i class="ri-message-3-line fs-6"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">
+                        <i class="ri-timer-line fs-6"></i>
+                    </a>
+                </li>
+            </ul>
+
+    </aside>
+    <div class="chat-windows"></div>
+    <!-- -------------------------------------------------------------- -->
+    <!-- All Jquery -->
+    <!-- -------------------------------------------------------------- -->
+    <script src="~/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <!-- apps -->
+    <script src="~/js/app.min.js"></script>
+    <script src="~/js/app.init.js"></script>
+    <script src="~/js/app-style-switcher.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="~/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="~/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/js/feather.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/js/custom.min.js"></script>
+    <script src="~/libs/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="~/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script>
+        //Basic Example
+        $("#example-basic").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            autoFocus: true
+        });
+
+        // Basic Example with form
+        var form = $("#example-form");
+        form.validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+        form.children("div").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex) {
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onFinishing: function (event, currentIndex) {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            }
+        });
+
+        // Advance Example
+
+        var form = $("#example-advanced-form").show();
+
+        form.steps({
+            headerTag: "h3",
+            bodyTag: "fieldset",
+            transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex) {
+                // Allways allow previous action even if the current form is not valid!
+                if (currentIndex > newIndex) {
+                    return true;
+                }
+                // Forbid next action on "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age-2").val()) < 18) {
+                    return false;
+                }
+                // Needed in some cases if the user went back (clean up)
+                if (currentIndex < newIndex) {
+                    // To remove error styles
+                    form.find(".body:eq(" + newIndex + ") label.error").remove();
+                    form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+                }
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                // Used to skip the "Warning" step if the user is old enough.
+                if (currentIndex === 2 && Number($("#age-2").val()) >= 18) {
+                    form.steps("next");
+                }
+                // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3) {
+                    form.steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex) {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            }
+        }).validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                confirm: {
+                    equalTo: "#password-2"
+                }
+            }
+        });
+
+        // Dynamic Manipulation
+        $("#example-manipulation").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            enableAllSteps: true,
+            enablePagination: false
+        });
+
+        //Vertical Steps
+
+        $("#example-vertical").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            stepsOrientation: "vertical"
+        });
+
+        //Custom design form example
+        $(".tab-wizard").steps({
+            headerTag: "h6",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            titleTemplate: '<span class="step">#index#</span> #title#',
+            labels: {
+                finish: "Submit"
+            },
+            onFinished: function (event, currentIndex) {
+                swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+
+            }
+        });
+
+
+        var form = $(".validation-wizard").show();
+
+        $(".validation-wizard").steps({
+            headerTag: "h6",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            titleTemplate: '<span class="step">#index#</span> #title#',
+            labels: {
+                finish: "Submit"
+            },
+            onStepChanging: function (event, currentIndex, newIndex) {
+                return currentIndex > newIndex || !(3 === newIndex && Number($("#age-2").val()) < 18) && (currentIndex < newIndex && (form.find(".body:eq(" + newIndex + ") label.error").remove(), form.find(".body:eq(" + newIndex + ") .error").removeClass("error")), form.validate().settings.ignore = ":disabled,:hidden", form.valid())
+            },
+            onFinishing: function (event, currentIndex) {
+                return form.validate().settings.ignore = ":disabled", form.valid()
+            },
+            onFinished: function (event, currentIndex) {
+                swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+            }
+        }), $(".validation-wizard").validate({
+            ignore: "input[type=hidden]",
+            errorClass: "text-danger",
+            successClass: "text-success",
+            highlight: function (element, errorClass) {
+                $(element).removeClass(errorClass)
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass)
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element)
+            },
+            rules: {
+                email: {
+                    email: !0
+                }
+            }
+        })
+
+        $('#disty').hide(); //initially dropdown is hidden
+        $('#IsDisabled').change(function () { //change click to hidden
+
+            if ($(IsDisabled).is(':checked')) {
+                $('#IsDisabled').val($(this).is(':checked'));
+                //check if checkbox is checked
+                $('#disty').show();  //show if checked
+            } else {
+                $('#disty').hide(); //hide if unchecked
+            }
+
+        })
+
+
+
+        function toggleDiv(value) {
+            if (value == "") {
+
+            }
+
+            const rec = document.getElementById("rec");
+            rec.style.display = value == 1 ? "block" : "none";
+            pg.style.display = value == 1 ? "block" : "none";
+            civil.style.display = value == 1 || value == 2 ? "block" : "none";
+            govcivil.style.display = value == 1 || value == 2 ? "block" : "none";
+            nationalfor.style.display = value == 2 ? "block" : "none";
+            nationalid.style.display = value == 2 ? "block" : "none";
+            passportno.style.display = value == 3 || value == 4 ? "block" : "none";
+
+        }
+        function toggleDiv1(value) {
+            if (value == "") {
+
+            }
+
+            const rec = document.getElementById("rec");
+            rec.style.display = value == 1 ? "block" : "none";
+            pg.style.display = value == 1 ? "block" : "none";
+            civil.style.display = value == 1 || value == 2 ? "block" : "none";
+            govcivil.style.display = value == 1 || value == 2 ? "block" : "none";
+            nationalfor.style.display = value == 2 ? "block" : "none";
+            nationalid.style.display = value == 2 ? "block" : "none";
+
+
+        }
+
+        function ageCalculator() {
+            var userinput = document.getElementById("FatherBOD").value;
+            var dob = new Date(userinput);
+            if (userinput == null || userinput == '') {
+                document.getElementById("message").innerHTML = "**Choose a date please!";
+                return false;
+            } else {
+
+                //calculate month difference from current date in time
+                var month_diff = Date.now() - dob.getTime();
+
+                //convert the calculated difference in date format
+                var age_dt = new Date(month_diff);
+
+                //extract year from date
+                var year = age_dt.getUTCFullYear();
+
+                //now calculate the age of the user
+                var age = Math.abs(year - 1970);
+
+                //display the calculated age
+                //return document.getElementById("result").innerHTML = age;
+                return document.getElementById("result").value = age;
+            }
+        }
+
+
+
+
+
+
+
+
+        function ageCalculator1() {
+            var userinput1 = document.getElementById("MotherBOD").value;
+            var dob1 = new Date(userinput1);
+            if (userinput1 == null || userinput1 == '') {
+                document.getElementById("message").innerHTML = "**Choose a date please!";
+                return false;
+            } else {
+
+                //calculate month difference from current date in time
+                var month_diff1 = Date.now() - dob1.getTime();
+
+                //convert the calculated difference in date format
+                var age_dt1 = new Date(month_diff1);
+
+                //extract year from date
+                var year1 = age_dt1.getUTCFullYear();
+
+                //now calculate the age of the user
+                var age1 = Math.abs(year1 - 1970);
+
+                //display the calculated age
+                //return document.getElementById("result").innerHTML = age;
+                return document.getElementById("resultm").value = age1;
+            }
+        }
+
+    </script>
+</body>
