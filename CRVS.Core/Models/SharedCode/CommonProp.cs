@@ -13,6 +13,7 @@ namespace CRVS.Core.Models.SharedCode
         #region AllProp
         public bool IsDeleted { get; set; }=false;
         public bool IsActive { get; set; }
+        public bool IsReject { get; set; } = false;
         public DateTime CreationDate { get; set; }
 
         #endregion

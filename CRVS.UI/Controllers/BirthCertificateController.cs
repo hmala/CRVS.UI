@@ -14,8 +14,8 @@ namespace CRVS.UI.Controllers
         public IBaseRepository<BirthCertificate> _BaseRepository;
         public IWebHostEnvironment _environment;
         public ApplicationDbContext _context;
-           
-            
+
+
 
         public BirthCertificateController(IBaseRepository<BirthCertificate> BaseRepository,
             ApplicationDbContext context,
@@ -25,16 +25,16 @@ namespace CRVS.UI.Controllers
 
             _environment = webHostEnvironment;
             _context = context;
-           
-        }
-        [HttpGet]
-       
 
-        public IActionResult Index( )
+        }
+
+
+        [HttpGet]
+        public IActionResult Index()
         {
-            var birth= _context.BirthCertificates.Where(x=>x.IsDeleted==false).ToList();
+            var birth = _context.BirthCertificates.Where(x => x.IsDeleted == false).ToList();
             return View(birth);
-           
+
         }
         public IActionResult Index1()
         {
@@ -43,6 +43,9 @@ namespace CRVS.UI.Controllers
 
         }
 
+          
+       
+       
         [HttpGet]
         public IActionResult Create()
         {
@@ -92,9 +95,9 @@ namespace CRVS.UI.Controllers
             ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
             ViewBag.Religion = new SelectList(evnData1, "ReligionId", "ReligionName");
             ViewBag.Religion1 = new SelectList(oddData1, "ReligionId", "ReligionName");
-
+           
             BirthCertificate birth =  _BaseRepository.GetAll().Where(x=>x.CertificateNo==CertificateNo).SingleOrDefault()!;
-            
+                
                 return View(birth);
 
             
@@ -104,7 +107,8 @@ namespace CRVS.UI.Controllers
         public  IActionResult Edit(string CertificateNo,BirthCertificate model)
         {
 
-
+            model.IsReject = false;
+             
             _BaseRepository.Update(CertificateNo,model);
 
             return RedirectToAction("Index");
@@ -139,6 +143,14 @@ namespace CRVS.UI.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult PreCreate()
+        {
 
+           var  BirthCertificates = _context.BirthCertificates.ToList();
+            return View(BirthCertificates);
+
+        }
+    
     }
 }

@@ -35,6 +35,7 @@ namespace CRVS.EF
                 if (entry.State==EntityState.Deleted)
                 {
                     entry.State = EntityState.Modified;
+                    entity.GetType().GetProperty("IsReject").SetValue(entity,true);
                     entity.GetType().GetProperty("IsDeleted").SetValue(entity,true);
                 }
             }
