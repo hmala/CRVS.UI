@@ -3,9 +3,13 @@ using CRVS.Core.Models;
 using CRVS.Core.Models.ViewModels;
 using CRVS.EF;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Elfie.Model.Map;
 using Microsoft.EntityFrameworkCore;
-
+using System.Runtime.Versioning;
+using Microsoft.AspNetCore.Http;
+using System.Drawing;
 
 namespace CRVS.UI.Controllers
 {
@@ -14,7 +18,7 @@ namespace CRVS.UI.Controllers
         public IBaseRepository<BirthCertificate> _BaseRepository;
         public IWebHostEnvironment _environment;
         public ApplicationDbContext _context;
-
+        String fname;
 
 
         public BirthCertificateController(IBaseRepository<BirthCertificate> BaseRepository,
@@ -28,7 +32,7 @@ namespace CRVS.UI.Controllers
 
         }
 
-
+       
         [HttpGet]
         public IActionResult Index()
         {
@@ -42,12 +46,8 @@ namespace CRVS.UI.Controllers
             return View(birth);
 
         }
-
-          
-       
-       
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(BirthCertificate model)
         {
             var oddData = _context.Jobs.ToList().Where((c, i) => i % 2 != 0);
             var evnData = _context.Jobs.ToList().Where((c, i) => i % 2 == 0);
@@ -61,7 +61,7 @@ namespace CRVS.UI.Controllers
             ViewBag.Nationality = new SelectList(_context.Nationalities, "NationalityId", "NationalityName");
             ViewBag.Religion = new SelectList(evnData1, "ReligionId", "ReligionName");
             ViewBag.Religion1 = new SelectList(oddData1, "ReligionId", "ReligionName");
-            
+            ViewBag.fname = HttpContext.Session.GetString("Fname");
             return View();
         }
         [HttpPost]
@@ -72,6 +72,7 @@ namespace CRVS.UI.Controllers
                  model.FatherAge= result;
                  model.MotherAge= resultm;
                  model.IsDisabled= IsDisabled;
+                
                 _BaseRepository.Add(model);
                 _BaseRepository.SaveChanges();
                 return RedirectToAction("Index");
@@ -135,6 +136,7 @@ namespace CRVS.UI.Controllers
 
             return View(birth);
         }
+      
         [HttpGet]
         public IActionResult Delete(string CertificateNo)
         {
@@ -143,14 +145,28 @@ namespace CRVS.UI.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public IActionResult PreCreate()
         {
-
-           var  BirthCertificates = _context.BirthCertificates.ToList();
+           
+            var  BirthCertificates = _context.BirthCertificates.ToList();
             return View(BirthCertificates);
+           
+        }
+        [HttpPost]
+        public IActionResult PreCreate(BirthCertificate model,DateTime sdate, DateTime edate)
+        {
+
+            var BirthCertificates = _context.BirthCertificates.Where(x=> x.BOD>=sdate && x.BOD<=edate).ToList();
+            fname = Request.Form["Fname"]!;
+            HttpContext.Session.SetString("Fname",fname);
+            return RedirectToAction("Create");
+            
+           
+
 
         }
-    
+       
     }
 }

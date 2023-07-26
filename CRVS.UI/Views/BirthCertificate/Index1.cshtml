@@ -68,11 +68,13 @@
                                        style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>@Html.DisplayNameFor(x=>x.CertificateNo)</></th>
-                                            <th>@Html.DisplayNameFor(x=>x.ChildName)</></th>
-                                            <th>@Html.DisplayNameFor(x=>x.FatherFullName)</></th>
+                                            <th>@Html.DisplayNameFor(x=>x.FatherFName)</></th>
+                                            <th>@Html.DisplayNameFor(x=>x.FatherMName)</></th>
+                                            <th>@Html.DisplayNameFor(x=>x.FatherLName)</></th>
                                             <th>@Html.DisplayNameFor(x=>x.FatherMobile)</></th>
-                                            <th>@Html.DisplayNameFor(x=>x.MotherFullName)</></th>
+                                            <th>@Html.DisplayNameFor(x=>x.MotherFName)</></th>
+                                            <th>@Html.DisplayNameFor(x=>x.MotherMName)</></th>
+                                            <th>@Html.DisplayNameFor(x=>x.MotherLName)</></th>
                                             <th>@Html.DisplayNameFor(x=>x.MotherMobile)</></th>
                                         </tr>
                                     </thead>
@@ -81,17 +83,26 @@
                                         {
                                             <tr>
 
-                                                <td>@item.CertificateNo</td>
-                                                <td>@item.ChildName</td>
-                                                <td>@item.FatherFullName</td>
-                                                <td>@item.FatherMobile</td>
-                                                <td>@item.MotherFullName</td>
-                                                <td>@item.MotherMobile</td>
 
+
+                                                <td>@item.FatherFName</td>
+                                                <td>@item.FatherMName</td>
+                                                <td>@item.FatherLName</td>
+                                                <td>@item.FatherMobile</td>
+                                                <td>@item.MotherFName</td>
+                                                <td>@item.MotherMName</td>
+                                                <td>@item.MotherLName</td>
+                                                <td>@item.MotherMobile</td>
+                                                <td>
+                                                    <a asp-action="Details" class="btn btn-outline-info" asp-controller="BirthCertificate" asp-route-CertificateNo="@item.CertificateNo">تفاصيل</a>
+                                                </td>
+                                                <td>
+                                                    <a asp-action="Delete" class="btn btn-outline-info" asp-controller="BirthCertificate" asp-route-CertificateNo="@item.CertificateNo">حذف</a>
+                                                </td>
                                             </tr>
                                         }
                                     </tbody>
-                                  
+
                                 </table>
                             </div>
                         </div>

@@ -14,6 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(Options =>
 {
     Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
     });
+builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromSeconds(50));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddTransient(typeof(IBaseRepository<>),typeof(BaseRepository<>));
 var app = builder.Build();
@@ -28,7 +29,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

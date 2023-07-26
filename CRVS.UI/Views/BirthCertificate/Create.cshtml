@@ -51,7 +51,7 @@
                             <h6>معلومات الوليد</h6>
 
                             <section>
-                                
+                                <input type="hidden" asp-for="BirthCertificateId" />
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="mb-3">
@@ -193,7 +193,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherFName" class="control-label"></label>
-                                            <input asp-for="FatherFName" id="fname" class="form-control" />
+                                            <input asp-for="FatherFName" id="Fname" name="Fname" class="form-control" value="@ViewBag.fname" />
 
                                         </div>
 
@@ -202,14 +202,14 @@
                                         <div class="mb-3">
 
                                             <label asp-for="FatherMName" class="control-label"></label>
-                                            <input asp-for="FatherMName" id="mname" class="form-control" />
+                                            <input asp-for="FatherMName" id="mname" name="mname" class="form-control"  />
 
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <label asp-for="FatherLName" class="control-label"></label>
-                                            <input asp-for="FatherLName" id="lname" class="form-control" />
+                                            <input asp-for="FatherLName" id="lname" name="lname" class="form-control" />
                                         </div>
                                     </div>
 
